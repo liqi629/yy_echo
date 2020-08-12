@@ -1,0 +1,57 @@
+Tue, 28 Jul 2020 14:51:37-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Tue, 28 Jul 2020 14:51:37-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.05：以秒为单位
+Tue, 28 Jul 2020 14:51:37-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="username"]')
+Tue, 28 Jul 2020 14:51:37-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="username"]')中输入文本：cdh
+Tue, 28 Jul 2020 14:51:37-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="password"]')
+Tue, 28 Jul 2020 14:51:37-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="password"]')中输入文本：cdh
+Tue, 28 Jul 2020 14:51:38-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="登 录"]')
+Tue, 28 Jul 2020 14:51:38-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="登 录"]')点击事件
+Tue, 28 Jul 2020 14:51:43-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="资源管理"]')
+Tue, 28 Jul 2020 14:51:44-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.58：以秒为单位
+Tue, 28 Jul 2020 14:51:44-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="资源管理"]')
+Tue, 28 Jul 2020 14:51:44-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="资源管理"]')点击事件
+Tue, 28 Jul 2020 14:51:44-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="应用管理"]')
+Tue, 28 Jul 2020 14:51:44-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="应用管理"]')点击事件
+Tue, 28 Jul 2020 14:51:44-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="添加"]')
+Tue, 28 Jul 2020 14:51:45-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长1.06：以秒为单位
+Tue, 28 Jul 2020 14:51:45-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="添加"]')
+Tue, 28 Jul 2020 14:51:45-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="添加"]')点击事件
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文名称"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文名称"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文名称"]')中输入文本：功能自动化测试一
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入编码"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入编码"]')中输入文本：123456789
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文简称"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文简称"]')中输入文本：自动化测试一
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文名称"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文名称"]')中输入文本：uiAutoTestOne
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文简称"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文简称"]')中输入文本：autoTestOne
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//textarea[@placeholder="请输入描述"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//textarea[@placeholder="请输入描述"]')中输入文本：这个业务系统是用来做自动化测试的，请勿删除
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入版本号"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入版本号"]')中输入文本：1.0
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入部门"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入部门"]')中输入文本：产品质量保障一部
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入联系人"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入联系人"]')中输入文本：产品测试员一
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入手机"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入手机"]')中输入文本：18610430001
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@aria-label="新增应用"]//span[text()="确 定"]')
+Tue, 28 Jul 2020 14:51:46-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//div[@aria-label="新增应用"]//span[text()="确 定"]')点击事件
+Tue, 28 Jul 2020 14:51:48-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//*[text()="功能自动化测试一"]')
+Tue, 28 Jul 2020 14:51:53-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Tue, 28 Jul 2020 14:51:53-INFO-BasePage.py-save_webImgs-[line:180]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-07-28-14-51-53.png
+Tue, 28 Jul 2020 14:51:56-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="资源管理"]')
+Tue, 28 Jul 2020 14:51:56-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.57：以秒为单位
+Tue, 28 Jul 2020 14:51:56-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="资源管理"]')
+Tue, 28 Jul 2020 14:51:56-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="资源管理"]')点击事件
+Tue, 28 Jul 2020 14:51:56-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="应用管理"]')
+Tue, 28 Jul 2020 14:51:56-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="应用管理"]')点击事件
+Tue, 28 Jul 2020 14:51:57-INFO-BasePage.py-switch_iframe-[line:187]iframe切换操作：
+Tue, 28 Jul 2020 14:52:27-ERROR-BasePage.py-switch_iframe-[line:194]iframe切换失败！
+Tue, 28 Jul 2020 14:52:27-INFO-BasePage.py-save_webImgs-[line:180]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-07-28-14-52-27.png
+Tue, 28 Jul 2020 14:52:30-WARNING-connectionpool.py-urlopen-[line:752]Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001756CFC1668>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',)': /session/db59ebb6-749a-422d-916e-0bd6e1c510ef
+Tue, 28 Jul 2020 14:52:32-WARNING-connectionpool.py-urlopen-[line:752]Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001756D0930F0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',)': /session/db59ebb6-749a-422d-916e-0bd6e1c510ef
+Tue, 28 Jul 2020 14:52:34-WARNING-connectionpool.py-urlopen-[line:752]Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001756D093240>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',)': /session/db59ebb6-749a-422d-916e-0bd6e1c510ef

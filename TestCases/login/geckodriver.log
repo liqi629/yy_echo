@@ -1,0 +1,15 @@
+1595557447919	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\mrl\\AppData\\Local\\Temp\\rust_mozprofileqPP3zy"
+*** You are running in headless mode.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1595557450343	Marionette	INFO	Listening on port 64029
+1595557450537	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595557481377	Marionette	INFO	Stopped listening on port 64029
+1595557641243	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\mrl\\AppData\\Local\\Temp\\rust_mozprofileNGSxXX"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1595557643309	Marionette	INFO	Listening on port 64121
+1595557643360	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 281: NS_ERROR_FAILURE: Should pass a non-null uri
+1595557668970	Marionette	INFO	Stopped listening on port 64121
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

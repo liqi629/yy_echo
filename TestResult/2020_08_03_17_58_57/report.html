@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <style>body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	/* do not increase min-width as some may use split screens */
+	min-width: 800px;
+	color: #999;
+}
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
+h2 {
+	font-size: 16px;
+	color: black;
+}
+
+p {
+    color: black;
+}
+
+a {
+	color: #999;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+
+#environment td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+}
+
+#environment tr:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed, .passed .col-result {
+	color: green;
+}
+span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+	color: orange;
+}
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
+	color: red;
+}
+
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+
+#results-table {
+	border: 1px solid #e6e6e6;
+	color: #999;
+	font-size: 12px;
+	width: 100%
+}
+
+#results-table th, #results-table td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+	text-align: left
+}
+#results-table th {
+	font-weight: bold
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+
+.log:only-child {
+	height: inherit
+}
+.log {
+	background-color: #e6e6e6;
+	border: 1px solid #e6e6e6;
+	color: black;
+	display: block;
+	font-family: "Courier New", Courier, monospace;
+	height: 230px;
+	overflow-y: scroll;
+	padding: 5px;
+	white-space: pre-wrap
+}
+div.image {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.image img {
+	width: 320px
+}
+div.video {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.video video {
+	overflow: hidden;
+	width: 320px;
+    height: 240px;
+}
+.collapsed {
+	display: none;
+}
+.expander::after {
+	content: " (show details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+.collapser::after {
+	content: " (hide details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+	cursor: pointer;
+}
+
+.sort-icon {
+	font-size: 0px;
+	float: left;
+	margin-right: 5px;
+	margin-top: 5px;
+	/*triangle*/
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+}
+
+.inactive .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #E6E6E6;
+}
+
+.asc.active .sort-icon {
+	/*finish triangle*/
+	border-bottom: 8px solid #999;
+}
+
+.desc.active .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #999;
+}
+</style></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function find_all(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sort_column(elem) {
+    toggle_sort_states(elem);
+    var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    var key;
+    if (elem.classList.contains('numeric')) {
+        key = key_num;
+    } else if (elem.classList.contains('result')) {
+        key = key_result;
+    } else {
+        key = key_alpha;
+    }
+    sort_table(elem, key(colIndex));
+}
+
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
+}
+
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
+}
+
+function show_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.remove("collapsed");
+    expandcollapse.classList.remove("expander");
+    expandcollapse.classList.add("collapser");
+}
+
+function hide_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.add("collapsed");
+    expandcollapse.classList.remove("collapser");
+    expandcollapse.classList.add("expander");
+}
+
+function show_filters() {
+    var filter_items = document.getElementsByClassName('filter');
+    for (var i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
+}
+
+function add_collapse() {
+    // Add links for show/hide all
+    var resulttable = find('table#results-table');
+    var showhideall = document.createElement("p");
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
+        var extras = elem.parentNode.nextElementSibling;
+        var expandcollapse = document.createElement("span");
+        if (extras.classList.contains("collapsed")) {
+            expandcollapse.classList.add("expander")
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add("collapsed");
+            expandcollapse.classList.add("expander");
+        } else {
+            expandcollapse.classList.add("collapser");
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener("click", function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains("collapsed")) {
+                show_extras(event.currentTarget);
+            } else {
+                hide_extras(event.currentTarget);
+            }
+        });
+    })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () {
+    reset_sort_headers();
+
+    add_collapse();
+
+    show_filters();
+
+    sort_column(find('.initial-sort'));
+
+    find_all('.sortable').forEach(function(elem) {
+        elem.addEventListener("click",
+                              function(event) {
+                                  sort_column(elem);
+                              }, false)
+    });
+
+};
+
+function sort_table(clicked, key_func) {
+    var rows = find_all('.results-table-row');
+    var reversed = !clicked.classList.contains('asc');
+    var sorted_rows = sort(rows, key_func, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    var thead = document.getElementById("results-table-head");
+    document.getElementById('results-table').remove();
+    var parent = document.createElement("table");
+    parent.id = "results-table";
+    parent.appendChild(thead);
+    sorted_rows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName("BODY")[0].appendChild(parent);
+}
+
+function sort(items, key_func, reversed) {
+    var sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
+    });
+
+    sort_array.sort(function(a, b) {
+        var key_a = a[0];
+        var key_b = b[0];
+
+        if (key_a == key_b) return 0;
+
+        if (reversed) {
+            return (key_a < key_b ? 1 : -1);
+        } else {
+            return (key_a > key_b ? 1 : -1);
+        }
+    });
+
+    return sort_array.map(function(item) {
+        var index = item[1];
+        return items[index];
+    });
+}
+
+function key_alpha(col_index) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+    };
+}
+
+function key_num(col_index) {
+    return function(elem) {
+        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function key_result(col_index) {
+    return function(elem) {
+        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+                       'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    find_all('.sortable').forEach(function(elem) {
+        var icon = document.createElement("div");
+        icon.className = "sort-icon";
+        icon.textContent = "vvv";
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove("desc", "active");
+        elem.classList.add("asc", "inactive");
+    });
+}
+
+function toggle_sort_states(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        reset_sort_headers();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function is_all_rows_hidden(value) {
+  return value.hidden == false;
+}
+
+function filter_table(elem) {
+    var outcome_att = "data-test-result";
+    var outcome = elem.getAttribute(outcome_att);
+    class_outcome = outcome + " results-table-row";
+    var outcome_rows = document.getElementsByClassName(class_outcome);
+
+    for(var i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
+    }
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    var all_rows_hidden = rows.length == 0 ? true : false;
+    var not_found_message = document.getElementById("not-found-message");
+    not_found_message.hidden = !all_rows_hidden;
+}
+</script>
+    <h1>report.html</h1>
+    <p>Report generated on 03-Aug-2020 at 18:01:53 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>JAVA_HOME</td>
+        <td>H:\Program Files\Java\jdk1.8.0_151</td></tr>
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "0.13.1", "py": "1.9.0", "pytest": "5.4.3"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Windows-10-10.0.18362-SP0</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"Faker": "4.1.1", "cov": "2.10.0", "html": "2.1.1", "metadata": "1.10.0"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.6.5</td></tr></table>
+    <h2>Summary</h2>
+    <p>13 tests ran in 175.53 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">11 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th>Description</th>
+          <th class="sortable numeric" col="duration">Duration</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_add_operation_system</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：添加应用</p>
+                <p>        前置：登录系统</p>
+                <p>        步骤：</p>
+                <p>        1、点击资源管理展开菜单</p>
+                <p>        2、点击应用管理</p>
+                <p>        3、点击添加，输入应用信息</p>
+                <p>        4、点击确定</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出的提示信息。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">5.18</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="image/test_2_story_one.py_TestUserStoryOne_test_add_operation_system.png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x000001FEAB8F50B8&gt;<br/>browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;fdb9d70ecce945302a4392237365f739&quot;)&gt;<br/><br/>    def test_add_operation_system(self, browser):<br/>        &quot;&quot;&quot;<br/>        名称：添加应用<br/>        前置：登录系统<br/>        步骤：<br/>        1、点击资源管理展开菜单<br/>        2、点击应用管理<br/>        3、点击添加，输入应用信息<br/>        4、点击确定<br/>        检查点：<br/>        * 检查页面弹出的提示信息。<br/>        &quot;&quot;&quot;<br/>        hp(browser).add_operation_system(os[&quot;zh_name&quot;], os[&quot;code&quot;], os[&quot;short_zn_name&quot;],<br/>                                         os[&quot;en_name&quot;], os[&quot;short_en_name&quot;], os[&quot;sys_remark&quot;],<br/>                                         os[&quot;sys_version&quot;], os[&quot;dept&quot;], os[&quot;contacter&quot;],<br/>                                         os[&quot;mobile&quot;], os[&quot;email&quot;])<br/>        msg = hp(browser).get_text(hp_loc.toast_msg)<br/>&gt;       assert msg == &#x27;保存成功!&#x27;<br/><span class="error">E       AssertionError: assert &#x27;应用编码已存在,请输入新编码&#x27; == &#x27;保存成功!&#x27;</span><br/><span class="error">E         - 保存成功!</span><br/><span class="error">E         + 应用编码已存在,请输入新编码</span><br/><br/>TestCases\user_story\test_2_story_one.py:47: AssertionError<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//input[@name=&quot;username&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@name=&quot;username&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//input[@name=&quot;username&quot;]&#x27;)中输入文本：lq
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@name=&quot;password&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//input[@name=&quot;password&quot;]&#x27;)中输入文本：lq
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;登 录&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;登 录&quot;]&#x27;)点击事件<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;资源管理&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.05：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;资源管理&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;资源管理&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;应用管理&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.61：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;应用管理&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;应用管理&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.83：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;添加&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入中文名称&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入中文名称&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入中文名称&quot;]&#x27;)中输入文本：功能自动化测试一
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入编码&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入编码&quot;]&#x27;)中输入文本：123456789
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入中文简称&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入中文简称&quot;]&#x27;)中输入文本：自动化测试一
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入英文名称&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入英文名称&quot;]&#x27;)中输入文本：uiAutoTestOne
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入英文简称&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入英文简称&quot;]&#x27;)中输入文本：autoTestOne
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//textarea[@placeholder=&quot;请输入描述&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//textarea[@placeholder=&quot;请输入描述&quot;]&#x27;)中输入文本：这个业务系统是用来做自动化测试的，请勿删除
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入版本号&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入版本号&quot;]&#x27;)中输入文本：1.0
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入部门&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入部门&quot;]&#x27;)中输入文本：产品质量保障一部
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入联系人&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入联系人&quot;]&#x27;)中输入文本：产品测试员一
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入手机&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@class=&quot;el-form speDialogForm&quot;]//input[@placeholder=&quot;请输入手机&quot;]&#x27;)中输入文本：18610430001
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//div[@aria-label=&quot;新增应用&quot;]//span[text()=&quot;确 定&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//div[@aria-label=&quot;新增应用&quot;]//span[text()=&quot;确 定&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.53：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容为:应用编码已存在,请输入新编码<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_create_work_flow</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：快速生成工作流</p>
+                <p>        步骤：</p>
+                <p>        1、选择作业，点击快速生成工作流</p>
+                <p>        2、输入名称和描述信息</p>
+                <p>        3、点击确定</p>
+                <p>        4、切换到设计器页面，刷新</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面是否有作业。</p>
+                <p>        * 检查页面是否有工作流。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">1.93</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="image/test_2_story_one.py_TestUserStoryOne_test_create_work_flow.png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x000001FEABA7F7B8&gt;<br/>browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;fdb9d70ecce945302a4392237365f739&quot;)&gt;<br/><br/>    def test_create_work_flow(self, browser):<br/>        &quot;&quot;&quot;<br/>        名称：快速生成工作流<br/>        步骤：<br/>        1、选择作业，点击快速生成工作流<br/>        2、输入名称和描述信息<br/>        3、点击确定<br/>        4、切换到设计器页面，刷新<br/>        检查点：<br/>        * 检查页面是否有作业。<br/>        * 检查页面是否有工作流。<br/>        &quot;&quot;&quot;<br/>        dp(browser).cre_work_flow(sd.work_flow_name, &quot;自动化测试：工作流的描述&quot;)<br/>    <br/>        msg = dp(browser).get_text(dp_loc.text_to_loc(sd.work_flow_name))<br/>        msg_1 = dp(browser).get_text(dp_loc.text_to_loc(sd.map_name))<br/>    <br/>&gt;       assert msg == &#x27;mysql_qc_city&#x27;<br/><span class="error">E       AssertionError: assert &#x27;mysql_qc_city1596448738&#x27; == &#x27;mysql_qc_city&#x27;</span><br/><span class="error">E         - mysql_qc_city</span><br/><span class="error">E         + mysql_qc_city1596448738</span><br/><br/>TestCases\user_story\test_2_story_one.py:129: AssertionError<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;quicklyGeneateWorkflow&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;quicklyGeneateWorkflow&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;quicklyGeneateWorkflow&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;workflowName&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.55：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;workflowName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;workflowName&quot;]&#x27;)中输入文本：mysql_qc_city1596448738
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;workflowDescription&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;workflowDescription&quot;]&#x27;)中输入文本：自动化测试：工作流的描述
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;workflowBtn&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;workflowBtn&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:254 切换到指定handles
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)的文本内容为:mysql_qc_city1596448738
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)的文本内容为:映射_mysql_city1596448738<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_add_work_dir</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：添加工作目录</p>
+                <p>        步骤：</p>
+                <p>        1、点击工作目录管理</p>
+                <p>        2、点击添加，输入信息:目录名字和描述</p>
+                <p>        3、点击确定</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出的提示信息。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">2.49</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;工作目录管理&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;工作目录管理&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;工作目录管理&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;添加&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;// input[@autotest=&quot;workDirectoryName&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.05：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;// input[@autotest=&quot;workDirectoryName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;// input[@autotest=&quot;workDirectoryName&quot;]&#x27;)中输入文本：自动化测试目录1596448738
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//textarea[@autotest=&quot;remark&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//textarea[@autotest=&quot;remark&quot;]&#x27;)中输入文本：这是自动化测试运行时添加的工作目录
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@autotest=&quot;submit&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@autotest=&quot;submit&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.56：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容为:添加工作目录成功!<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_add_map</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：添加映射</p>
+                <p>        步骤：</p>
+                <p>        1、点击工作目录的进入按钮-映射设计器</p>
+                <p>        2、切换到新的页面，点击创建映射的+</p>
+                <p>        3、输入映射名称</p>
+                <p>        4、点击确定</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出的提示信息。添加映射成功!</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">15.99</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;工作目录管理&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;工作目录管理&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;工作目录管理&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//div[text()=&quot;自动化测试目录1596448738&quot;]//ancestor::tr//*[@class=&quot;el-icon-position&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//div[text()=&quot;自动化测试目录1596448738&quot;]//ancestor::tr//*[@class=&quot;el-icon-position&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//div[text()=&quot;自动化测试目录1596448738&quot;]//ancestor::tr//*[@class=&quot;el-icon-position&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:244 切换到最新打开的窗口
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射设计器&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长2.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射设计器&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射设计器&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:244 切换到最新打开的窗口
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//img[@id=&quot;addBgBac&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长2.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//img[@id=&quot;addBgBac&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//img[@id=&quot;addBgBac&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;bisName&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;bisName&quot;]&#x27;)
+INFO     root:BasePage.py:131 None：清除元素：(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;bisName&quot;]&#x27;)
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;bisName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//input[@id=&quot;bisName&quot;]&#x27;)中输入文本：映射_mysql_city1596448738
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btnBusinessAdd&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btnBusinessAdd&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.16：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容为:添加映射成功<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_add_datanode[data0]</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：添加数据节点,通过参数化的方式添加源和目标，共2个</p>
+                <p>        步骤：</p>
+                <p>        1、点击数据源-添加</p>
+                <p>        2、选择数据源类型，点击确定</p>
+                <p>        3、在弹出窗口，点击新增按钮</p>
+                <p>        4、输入数据信息，点击测试连接</p>
+                <p>        5、点击下一步-下一步-下一步-确定</p>
+                <p>        6、点击保存</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出的提示信息。</p>
+                <p>        * 检查页面是否有数据节点。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">23.05</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据源&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据源&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据源&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;添加&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;dataTree_1_switch&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.54：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;dataTree_1_switch&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;dataTree_1_switch&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27; //span[text()=&quot;MySQL&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27; //span[text()=&quot;MySQL&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27; //span[text()=&quot;MySQL&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-db-type&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-db-type&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-db-type&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:244 切换到最新打开的窗口
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//button[@id=&quot;addSource&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长2.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//button[@id=&quot;addSource&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//button[@id=&quot;addSource&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;sourceName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;sourceName&quot;]&#x27;)中输入文本：mysql_qc
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;ip&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;ip&quot;]&#x27;)中输入文本：172.16.161.119
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;port&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;port&quot;]&#x27;)中输入文本：3306
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;userName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;userName&quot;]&#x27;)中输入文本：root
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;passWord&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;passWord&quot;]&#x27;)中输入文本：root
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//*[@name=&quot;sameTOMysqlDriver&quot;]//*[@id=&quot;belongToSysName&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//*[@name=&quot;sameTOMysqlDriver&quot;]//*[@id=&quot;belongToSysName&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.01：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//*[@name=&quot;sameTOMysqlDriver&quot;]//*[@id=&quot;belongToSysName&quot;]&#x27;)
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;dbName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;dbName&quot;]&#x27;)中输入文本：qc
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//a[@id=&quot;test-connect&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//a[@id=&quot;test-connect&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;连接成功&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.53：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//button[@id=&quot;tableSelect&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//select[@name=&quot;tableTab_length&quot;]&#x27;)
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//input[@data-name=&quot;city&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@data-name=&quot;city&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//input[@data-name=&quot;city&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;确定&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;确定&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;确定&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:254 切换到指定handles
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.55：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)点击事件
+INFO     root:designer_page.py:204 创建时间是：2020-08-03 18:00:03
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.54：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容为:更新映射成功<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_add_datanode[data1]</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：添加数据节点,通过参数化的方式添加源和目标，共2个</p>
+                <p>        步骤：</p>
+                <p>        1、点击数据源-添加</p>
+                <p>        2、选择数据源类型，点击确定</p>
+                <p>        3、在弹出窗口，点击新增按钮</p>
+                <p>        4、输入数据信息，点击测试连接</p>
+                <p>        5、点击下一步-下一步-下一步-确定</p>
+                <p>        6、点击保存</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出的提示信息。</p>
+                <p>        * 检查页面是否有数据节点。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">23.59</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据目标&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据目标&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据目标&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;添加&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;添加&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;dataTree_1_switch&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.54：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;dataTree_1_switch&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@id=&quot;dataTree_1_switch&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27; //span[text()=&quot;MySQL&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.55：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27; //span[text()=&quot;MySQL&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27; //span[text()=&quot;MySQL&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-db-type&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-db-type&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-db-type&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:244 切换到最新打开的窗口
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//button[@id=&quot;addSource&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长2.07：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//button[@id=&quot;addSource&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//button[@id=&quot;addSource&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;sourceName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;sourceName&quot;]&#x27;)中输入文本：mysql_qc
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;ip&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;ip&quot;]&#x27;)中输入文本：172.16.161.119
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;port&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;port&quot;]&#x27;)中输入文本：3306
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;userName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;userName&quot;]&#x27;)中输入文本：root
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;passWord&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;passWord&quot;]&#x27;)中输入文本：root
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//*[@name=&quot;sameTOMysqlDriver&quot;]//*[@id=&quot;belongToSysName&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.06：以秒为单位
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//*[@name=&quot;sameTOMysqlDriver&quot;]//*[@id=&quot;belongToSysName&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//*[@name=&quot;sameTOMysqlDriver&quot;]//*[@id=&quot;belongToSysName&quot;]&#x27;)
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;dbName&quot;]&#x27;)
+INFO     root:BasePage.py:64 None：在元素(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//input[@id=&quot;dbName&quot;]&#x27;)中输入文本：qc
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//a[@id=&quot;test-connect&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//form[@name=&quot;sameTOMysqlDriver&quot;]//a[@id=&quot;test-connect&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;连接成功&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.53：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//button[@id=&quot;tableSelect&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//select[@name=&quot;tableTab_length&quot;]&#x27;)
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//input[@data-name=&quot;city_t&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//input[@data-name=&quot;city_t&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//input[@data-name=&quot;city_t&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;下一步&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;确定&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;确定&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[text()=&quot;确定&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:254 切换到指定handles
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.54：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)点击事件
+INFO     root:designer_page.py:204 创建时间是：2020-08-03 18:00:30
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.06：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容为:更新映射成功<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_pub_map</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：发布映射</p>
+                <p>        步骤：</p>
+                <p>        1、选择作业，批量连线</p>
+                <p>        2、保存-发布</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出的提示信息。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">9.59</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据源&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[@title=&quot;数据源&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射关系&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射关系&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;批量连线&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;批量连线&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;modalTableConfig&quot;]//a[text()=&quot;确定&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;modalTableConfig&quot;]//a[text()=&quot;确定&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;modalTableConfig&quot;]//a[text()=&quot;确定&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;保存&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.53：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-relation-add&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;发布&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;发布&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;发布&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.06：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//div[@id=&quot;toast-container&quot;]&#x27;)的文本内容为:映射发布成功
+更新映射成功<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_pilt_run</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：试运行</p>
+                <p>        步骤：</p>
+                <p>        1、点击数据源-添加</p>
+                <p>        2、选择数据源类型，点击确定</p>
+                <p>        3、在弹出窗口，点击新增按钮</p>
+                <p>        4、输入数据信息，点击测试连接</p>
+                <p>        5、点击下一步-下一步-下一步-确定</p>
+                <p>        6、点击保存</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面运行状态信息。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">16.16</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//*[@class=&quot;el-button el-button--text el-button--mini&quot;][4]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//*[@class=&quot;el-button el-button--text el-button--mini&quot;][4]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.55：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[@class=&quot;el-tag el-tag--success el-tag--small el-tag--light&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[@class=&quot;el-tag el-tag--success el-tag--small el-tag--light&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//span[@class=&quot;el-tag el-tag--success el-tag--small el-tag--light&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//span[@class=&quot;el-tag el-tag--success el-tag--small el-tag--light&quot;]&#x27;)的文本内容为:成功<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_del_work_flow</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：删除工作流</p>
+                <p>        步骤：</p>
+                <p>        1、选择工作流，点击删除图标</p>
+                <p>        2、在弹出的确认窗口点击确认</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出信息，删除成功!</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">9.80</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//ul[@class=&quot;el-menu&quot;]//span[text()=&quot;工作流设计器&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//ul[@class=&quot;el-menu&quot;]//span[text()=&quot;工作流设计器&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//ul[@class=&quot;el-menu&quot;]//span[text()=&quot;工作流设计器&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]//ancestor::span//i[@class=&quot;el-tooltip el-icon-delete left-icon item&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]//ancestor::span//i[@class=&quot;el-tooltip el-icon-delete left-icon item&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.05：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;mysql_qc_city1596448738&quot;]&#x27;)
+ERROR    root:BasePage.py:44 等待元素可见失败。
+INFO     root:BasePage.py:180 截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-08-03-18-01-18.png<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_del_job</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：删除作业</p>
+                <p>        步骤：</p>
+                <p>        1、选择作业，点击删除图标</p>
+                <p>        2、在弹出的确认窗口点击确认</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出信息，删除成功!</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">9.76</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//ul[@class=&quot;el-menu&quot;]//span[text()=&quot;工作流设计器&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.03：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//ul[@class=&quot;el-menu&quot;]//span[text()=&quot;工作流设计器&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//ul[@class=&quot;el-menu&quot;]//span[text()=&quot;工作流设计器&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.02：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]//ancestor::span//i[@class=&quot;el-tooltip el-icon-delete left-icon item&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]//ancestor::span//i[@class=&quot;el-tooltip el-icon-delete left-icon item&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.04：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+ERROR    root:BasePage.py:44 等待元素可见失败。
+INFO     root:BasePage.py:180 截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-08-03-18-01-30.png<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_del_map</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：删除映射</p>
+                <p>        步骤：</p>
+                <p>        1、进入映射设计器，选择映射，点击删除图标</p>
+                <p>        2、在弹出的确认窗口点击确认</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出信息，删除成功!</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">7.63</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:254 切换到指定handles
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.06：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;删除&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.09：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;删除&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;删除&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-delete&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.57：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-delete&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//a[@id=&quot;btn-delete&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;映射_mysql_city1596448738&quot;]&#x27;)
+ERROR    root:BasePage.py:44 等待元素可见失败。
+INFO     root:BasePage.py:180 截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-08-03-18-01-40.png<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_del_work_dir</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：删除工作目录</p>
+                <p>        步骤：</p>
+                <p>        1、进入工作目录，选择工作目录，点击删除图标</p>
+                <p>        2、在弹出的确认窗口点击确认</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出信息，删除成功!</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">1.07</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:249 切换到第一个窗口
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//*[text()=&quot;自动化测试目录1596448738&quot;]//ancestor::tr//i[@class=&quot;el-icon-delete&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.09：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//*[text()=&quot;自动化测试目录1596448738&quot;]//ancestor::tr//i[@class=&quot;el-icon-delete&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//*[text()=&quot;自动化测试目录1596448738&quot;]//ancestor::tr//i[@class=&quot;el-icon-delete&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.05：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.68：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容为:删除工作目录成功,删除行数[1]<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">TestCases/user_story/test_2_story_one.py::TestUserStoryOne::test_delete_operation_system</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        名称：删除应用</p>
+                <p>        步骤：</p>
+                <p>        1、进入应用管理，选择应用，点击删除</p>
+                <p>        2、在弹出的确认窗口点击确认</p>
+                <p>        检查点：</p>
+                <p>        * 检查页面弹出的提示信息。</p>
+                <p>        </p></body></html></td>
+          <td class="col-duration">4.26</td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;资源管理&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.05：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;资源管理&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;资源管理&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;应用管理&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.56：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;应用管理&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//span[text()=&quot;应用管理&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//*[text()=&quot;自动化测试一&quot;]//ancestor::tr//*[text()=&quot;删除&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长1.27：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//*[text()=&quot;自动化测试一&quot;]//ancestor::tr//*[text()=&quot;删除&quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//*[text()=&quot;自动化测试一&quot;]//ancestor::tr//*[text()=&quot;删除&quot;]&#x27;)点击事件
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)
+INFO     root:BasePage.py:78 None:元素：(&#x27;xpath&#x27;, &#x27;//button[@class=&quot;el-button el-button--default el-button--small el-button--primary &quot;]&#x27;)点击事件
+INFO     root:BasePage.py:37 None：等待元素可见：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:42 等待时长0.53：以秒为单位
+INFO     root:BasePage.py:50 None：查找元素：(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)
+INFO     root:BasePage.py:145 None:获取元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容
+INFO     root:BasePage.py:148 None:元素:(&#x27;xpath&#x27;, &#x27;//p[@class=&quot;el-message__content&quot;]&#x27;)的文本内容为:删除成功!<br/></div></td></tr></tbody></table></body></html>

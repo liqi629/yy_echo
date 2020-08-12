@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="5" hostname="LAPTOP-G3GAB2EO" name="pytest" skipped="0" tests="5" time="24.961" timestamp="2020-08-04T10:39:26.453640"><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="29" name="test_add_operation_system[zh_name]" time="12.370"><failure message="TypeError: string indices must be integers">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x00000182B2A89E80&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a85e39665dd875a3d3c803179925ad1f&quot;)&gt;
+data = &apos;zh_name&apos;
+
+    @pytest.mark.parametrize(&quot;data&quot;, operation_system_1)
+    def test_add_operation_system(self, browser, data):
+        &quot;&quot;&quot;
+        名称：添加应用
+        前置：登录系统
+        步骤：
+        1、点击资源管理展开菜单
+        2、点击应用管理
+        3、点击添加，输入应用信息
+        4、点击确定
+        检查点：
+        * 检查页面弹出的提示信息。
+        &quot;&quot;&quot;
+    
+&gt;       hp(browser).add_operation_system(data[&quot;zh_name&quot;], data[&quot;code&quot;], data[&quot;short_zn_name&quot;],
+                                         data[&quot;en_name&quot;], data[&quot;short_en_name&quot;], data[&quot;sys_remark&quot;],
+                                         data[&quot;sys_version&quot;], data[&quot;dept&quot;], data[&quot;contacter&quot;],
+                                         data[&quot;mobile&quot;], data[&quot;email&quot;])
+E       TypeError: string indices must be integers
+
+TestCases\user_story\test_2_story_one.py:44: TypeError</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="29" name="test_add_operation_system[code]" time="2.501"><failure message="TypeError: string indices must be integers">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x00000182B2B9C6A0&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a85e39665dd875a3d3c803179925ad1f&quot;)&gt;
+data = &apos;code&apos;
+
+    @pytest.mark.parametrize(&quot;data&quot;, operation_system_1)
+    def test_add_operation_system(self, browser, data):
+        &quot;&quot;&quot;
+        名称：添加应用
+        前置：登录系统
+        步骤：
+        1、点击资源管理展开菜单
+        2、点击应用管理
+        3、点击添加，输入应用信息
+        4、点击确定
+        检查点：
+        * 检查页面弹出的提示信息。
+        &quot;&quot;&quot;
+    
+&gt;       hp(browser).add_operation_system(data[&quot;zh_name&quot;], data[&quot;code&quot;], data[&quot;short_zn_name&quot;],
+                                         data[&quot;en_name&quot;], data[&quot;short_en_name&quot;], data[&quot;sys_remark&quot;],
+                                         data[&quot;sys_version&quot;], data[&quot;dept&quot;], data[&quot;contacter&quot;],
+                                         data[&quot;mobile&quot;], data[&quot;email&quot;])
+E       TypeError: string indices must be integers
+
+TestCases\user_story\test_2_story_one.py:44: TypeError</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="29" name="test_add_operation_system[short_zn_name]" time="2.469"><failure message="TypeError: string indices must be integers">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x00000182B2BCB198&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a85e39665dd875a3d3c803179925ad1f&quot;)&gt;
+data = &apos;short_zn_name&apos;
+
+    @pytest.mark.parametrize(&quot;data&quot;, operation_system_1)
+    def test_add_operation_system(self, browser, data):
+        &quot;&quot;&quot;
+        名称：添加应用
+        前置：登录系统
+        步骤：
+        1、点击资源管理展开菜单
+        2、点击应用管理
+        3、点击添加，输入应用信息
+        4、点击确定
+        检查点：
+        * 检查页面弹出的提示信息。
+        &quot;&quot;&quot;
+    
+&gt;       hp(browser).add_operation_system(data[&quot;zh_name&quot;], data[&quot;code&quot;], data[&quot;short_zn_name&quot;],
+                                         data[&quot;en_name&quot;], data[&quot;short_en_name&quot;], data[&quot;sys_remark&quot;],
+                                         data[&quot;sys_version&quot;], data[&quot;dept&quot;], data[&quot;contacter&quot;],
+                                         data[&quot;mobile&quot;], data[&quot;email&quot;])
+E       TypeError: string indices must be integers
+
+TestCases\user_story\test_2_story_one.py:44: TypeError</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="29" name="test_add_operation_system[en_name]" time="2.471"><failure message="TypeError: string indices must be integers">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x00000182B2BD61D0&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a85e39665dd875a3d3c803179925ad1f&quot;)&gt;
+data = &apos;en_name&apos;
+
+    @pytest.mark.parametrize(&quot;data&quot;, operation_system_1)
+    def test_add_operation_system(self, browser, data):
+        &quot;&quot;&quot;
+        名称：添加应用
+        前置：登录系统
+        步骤：
+        1、点击资源管理展开菜单
+        2、点击应用管理
+        3、点击添加，输入应用信息
+        4、点击确定
+        检查点：
+        * 检查页面弹出的提示信息。
+        &quot;&quot;&quot;
+    
+&gt;       hp(browser).add_operation_system(data[&quot;zh_name&quot;], data[&quot;code&quot;], data[&quot;short_zn_name&quot;],
+                                         data[&quot;en_name&quot;], data[&quot;short_en_name&quot;], data[&quot;sys_remark&quot;],
+                                         data[&quot;sys_version&quot;], data[&quot;dept&quot;], data[&quot;contacter&quot;],
+                                         data[&quot;mobile&quot;], data[&quot;email&quot;])
+E       TypeError: string indices must be integers
+
+TestCases\user_story\test_2_story_one.py:44: TypeError</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="29" name="test_add_operation_system[short_en_name]" time="2.670"><failure message="TypeError: string indices must be integers">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x00000182B2BEFC88&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a85e39665dd875a3d3c803179925ad1f&quot;)&gt;
+data = &apos;short_en_name&apos;
+
+    @pytest.mark.parametrize(&quot;data&quot;, operation_system_1)
+    def test_add_operation_system(self, browser, data):
+        &quot;&quot;&quot;
+        名称：添加应用
+        前置：登录系统
+        步骤：
+        1、点击资源管理展开菜单
+        2、点击应用管理
+        3、点击添加，输入应用信息
+        4、点击确定
+        检查点：
+        * 检查页面弹出的提示信息。
+        &quot;&quot;&quot;
+    
+&gt;       hp(browser).add_operation_system(data[&quot;zh_name&quot;], data[&quot;code&quot;], data[&quot;short_zn_name&quot;],
+                                         data[&quot;en_name&quot;], data[&quot;short_en_name&quot;], data[&quot;sys_remark&quot;],
+                                         data[&quot;sys_version&quot;], data[&quot;dept&quot;], data[&quot;contacter&quot;],
+                                         data[&quot;mobile&quot;], data[&quot;email&quot;])
+E       TypeError: string indices must be integers
+
+TestCases\user_story\test_2_story_one.py:44: TypeError</failure></testcase></testsuite></testsuites>

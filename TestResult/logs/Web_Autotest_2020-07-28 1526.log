@@ -1,0 +1,6 @@
+Tue, 28 Jul 2020 15:26:47-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Tue, 28 Jul 2020 15:26:57-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Tue, 28 Jul 2020 15:26:57-INFO-BasePage.py-save_webImgs-[line:180]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-07-28-15-26-57.png
+Tue, 28 Jul 2020 15:27:01-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Tue, 28 Jul 2020 15:27:13-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Tue, 28 Jul 2020 15:27:25-ERROR-BasePage.py-save_webImgs-[line:182]截屏失败

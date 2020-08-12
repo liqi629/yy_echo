@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="5" hostname="LAPTOP-G3GAB2EO" name="pytest" skipped="0" tests="7" time="95.565" timestamp="2020-08-03T17:38:55.927968"><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="29" name="test_add_operation_system" time="16.987"><failure message="AssertionError: assert &apos;应用编码已存在,请输入新编码&apos; == &apos;保存成功!&apos;
+  - 保存成功!
+  + 应用编码已存在,请输入新编码">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x000001CEB6455860&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+
+    def test_add_operation_system(self, browser):
+        &quot;&quot;&quot;
+        名称：添加应用
+        前置：登录系统
+        步骤：
+        1、点击资源管理展开菜单
+        2、点击应用管理
+        3、点击添加，输入应用信息
+        4、点击确定
+        检查点：
+        * 检查页面弹出的提示信息。
+        &quot;&quot;&quot;
+        hp(browser).add_operation_system(os[&quot;zh_name&quot;], os[&quot;code&quot;], os[&quot;short_zn_name&quot;],
+                                         os[&quot;en_name&quot;], os[&quot;short_en_name&quot;], os[&quot;sys_remark&quot;],
+                                         os[&quot;sys_version&quot;], os[&quot;dept&quot;], os[&quot;contacter&quot;],
+                                         os[&quot;mobile&quot;], os[&quot;email&quot;])
+        msg = hp(browser).get_text(hp_loc.toast_msg)
+&gt;       assert msg == &apos;保存成功!&apos;
+E       AssertionError: assert &apos;应用编码已存在,请输入新编码&apos; == &apos;保存成功!&apos;
+E         - 保存成功!
+E         + 应用编码已存在,请输入新编码
+
+TestCases\user_story\test_2_story_one.py:47: AssertionError</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="48" name="test_add_work_dir" time="4.863"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="62" name="test_add_map" time="18.662"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="78" name="test_add_datanode[data0]" time="16.331"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x000001CEB65027F0&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+data = {&apos;data_type&apos;: &apos;source&apos;, &apos;db_name&apos;: &apos;qc&apos;, &apos;ip&apos;: &apos;172.16.161.119&apos;, &apos;job&apos;: (&apos;xpath&apos;, &apos;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city&quot;]&apos;), ...}
+
+    @pytest.mark.parametrize(&quot;data&quot;, mysql_node_info)
+    def test_add_datanode(self, browser, data):
+        &quot;&quot;&quot;
+        名称：添加数据节点,通过参数化的方式添加源和目标，共2个
+        步骤：
+        1、点击数据源-添加
+        2、选择数据源类型，点击确定
+        3、在弹出窗口，点击新增按钮
+        4、输入数据信息，点击测试连接
+        5、点击下一步-下一步-下一步-确定
+        6、点击保存
+        检查点：
+        * 检查页面弹出的提示信息。
+        * 检查页面是否有数据节点。
+        &quot;&quot;&quot;
+        dp(browser).add_data_node_mysql(data[&quot;data_type&quot;], data[&quot;job&quot;], data[&quot;source_name&quot;],data[&quot;ip&quot;],
+                                        data[&quot;port&quot;], data[&quot;user_name&quot;],data[&quot;pass_word&quot;], data[&quot;db_name&quot;],
+&gt;                                       data[&quot;table&quot;], data[&quot;sys_name&quot;])
+
+TestCases\user_story\test_2_story_one.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\designer_page.py:146: in add_data_node_mysql
+    self.select_loc(job_name)
+PageObjects\designer_page.py:78: in select_loc
+    self.wait_eleVisible(loc)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x000001CEB6571AC8&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="78" name="test_add_datanode[data1]" time="16.258"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x000001CEB6591E10&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+data = {&apos;data_type&apos;: &apos;target&apos;, &apos;db_name&apos;: &apos;qc&apos;, &apos;ip&apos;: &apos;172.16.161.119&apos;, &apos;job&apos;: (&apos;xpath&apos;, &apos;//ul[@id=&quot;treeDemo&quot;]//span[text()=&quot;映射_mysql_city&quot;]&apos;), ...}
+
+    @pytest.mark.parametrize(&quot;data&quot;, mysql_node_info)
+    def test_add_datanode(self, browser, data):
+        &quot;&quot;&quot;
+        名称：添加数据节点,通过参数化的方式添加源和目标，共2个
+        步骤：
+        1、点击数据源-添加
+        2、选择数据源类型，点击确定
+        3、在弹出窗口，点击新增按钮
+        4、输入数据信息，点击测试连接
+        5、点击下一步-下一步-下一步-确定
+        6、点击保存
+        检查点：
+        * 检查页面弹出的提示信息。
+        * 检查页面是否有数据节点。
+        &quot;&quot;&quot;
+        dp(browser).add_data_node_mysql(data[&quot;data_type&quot;], data[&quot;job&quot;], data[&quot;source_name&quot;],data[&quot;ip&quot;],
+                                        data[&quot;port&quot;], data[&quot;user_name&quot;],data[&quot;pass_word&quot;], data[&quot;db_name&quot;],
+&gt;                                       data[&quot;table&quot;], data[&quot;sys_name&quot;])
+
+TestCases\user_story\test_2_story_one.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\designer_page.py:146: in add_data_node_mysql
+    self.select_loc(job_name)
+PageObjects\designer_page.py:78: in select_loc
+    self.wait_eleVisible(loc)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x000001CEB65ACCC0&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="99" name="test_pub_map" time="5.605"><failure message="TypeError: find_element() takes from 1 to 3 positional arguments but 24 were given">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x000001CEB66C65C0&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+
+    def test_pub_map(self, browser):
+        &quot;&quot;&quot;
+        名称：发布映射
+        步骤：
+        1、选择作业，批量连线
+        2、保存-发布
+        检查点：
+        * 检查页面弹出的提示信息。
+        &quot;&quot;&quot;
+&gt;       dp(browser).on_line(map_name)
+
+TestCases\user_story\test_2_story_one.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\designer_page.py:543: in on_line
+    self.select_loc(job_name)
+PageObjects\designer_page.py:78: in select_loc
+    self.wait_eleVisible(loc)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:71: in until
+    value = method(self._driver)
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\expected_conditions.py:128: in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+driver = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+by = &apos;映射_mysql_city1596447536&apos;
+
+    def _find_element(driver, by):
+        &quot;&quot;&quot;Looks up an element. Logs and re-raises ``WebDriverException``
+        if thrown.&quot;&quot;&quot;
+        try:
+&gt;           return driver.find_element(*by)
+E           TypeError: find_element() takes from 1 to 3 positional arguments but 24 were given
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\expected_conditions.py:411: TypeError</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="111" name="test_create_work_flow" time="14.693"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x000001CEB65ECBA8&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+
+    def test_create_work_flow(self, browser):
+        &quot;&quot;&quot;
+        名称：快速生成工作流
+        步骤：
+        1、选择作业，点击快速生成工作流
+        2、输入名称和描述信息
+        3、点击确定
+        4、切换到设计器页面，刷新
+        检查点：
+        * 检查页面是否有作业。
+        * 检查页面是否有工作流。
+        &quot;&quot;&quot;
+        dp(browser).cre_work_flow(sd.work_flow_name, &quot;自动化测试：工作流的描述&quot;)
+    
+&gt;       msg = dp(browser).get_text(dp_loc.text_to_loc(sd.work_flow_name))
+
+TestCases\user_story\test_2_story_one.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+Common\BasePage.py:142: in get_text
+    self.wait_eleVisible(loc)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;a5727329c837e74edc9b037c8b06bcbc&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x000001CEB670E550&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</failure></testcase></testsuite></testsuites>

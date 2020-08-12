@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="5" failures="0" hostname="LAPTOP-G3GAB2EO" name="pytest" skipped="0" tests="8" time="43.933" timestamp="2020-08-03T16:58:49.681869"><testcase classname="TestCases.login.test_1_login.TestLogin" file="TestCases\login\test_1_login.py" line="14" name="test_login_1_error[data0]" time="14.538"></testcase><testcase classname="TestCases.login.test_1_login.TestLogin" file="TestCases\login\test_1_login.py" line="14" name="test_login_1_error[data1]" time="7.616"></testcase><testcase classname="TestCases.login.test_1_login.TestLogin" file="TestCases\login\test_1_login.py" line="31" name="test_login_2_sucess" time="7.696"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="25" name="test_add_operation_system" time="10.822"><error message="test setup failure">@pytest.fixture(scope=&quot;class&quot;)
+    def class_home():
+        print(&quot;============整个测试类只执行一次的前置======================&quot;)
+        global driver
+        driver = RunConfig.driver
+        driver.get(CD.login_url)
+&gt;       LoginPage(driver).login(ld.ID_2[&apos;user&apos;], ld.ID_2[&apos;pwd&apos;])
+
+TestCases\user_story\conftest.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\login_page.py:15: in login
+    self.wait_eleVisible(loc.user_input)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b86423fce37ee21ea7d7fe1b4bdb31ab&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x0000015E440BC588&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</error></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="44" name="test_add_work_dir" time="0.000"><error message="test setup failure">@pytest.fixture(scope=&quot;class&quot;)
+    def class_home():
+        print(&quot;============整个测试类只执行一次的前置======================&quot;)
+        global driver
+        driver = RunConfig.driver
+        driver.get(CD.login_url)
+&gt;       LoginPage(driver).login(ld.ID_2[&apos;user&apos;], ld.ID_2[&apos;pwd&apos;])
+
+TestCases\user_story\conftest.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\login_page.py:15: in login
+    self.wait_eleVisible(loc.user_input)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b86423fce37ee21ea7d7fe1b4bdb31ab&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x0000015E440BC588&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</error></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="58" name="test_add_map" time="0.000"><error message="test setup failure">@pytest.fixture(scope=&quot;class&quot;)
+    def class_home():
+        print(&quot;============整个测试类只执行一次的前置======================&quot;)
+        global driver
+        driver = RunConfig.driver
+        driver.get(CD.login_url)
+&gt;       LoginPage(driver).login(ld.ID_2[&apos;user&apos;], ld.ID_2[&apos;pwd&apos;])
+
+TestCases\user_story\conftest.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\login_page.py:15: in login
+    self.wait_eleVisible(loc.user_input)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b86423fce37ee21ea7d7fe1b4bdb31ab&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x0000015E440BC588&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</error></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="74" name="test_add_datanode[data0]" time="0.000"><error message="test setup failure">@pytest.fixture(scope=&quot;class&quot;)
+    def class_home():
+        print(&quot;============整个测试类只执行一次的前置======================&quot;)
+        global driver
+        driver = RunConfig.driver
+        driver.get(CD.login_url)
+&gt;       LoginPage(driver).login(ld.ID_2[&apos;user&apos;], ld.ID_2[&apos;pwd&apos;])
+
+TestCases\user_story\conftest.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\login_page.py:15: in login
+    self.wait_eleVisible(loc.user_input)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b86423fce37ee21ea7d7fe1b4bdb31ab&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x0000015E440BC588&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</error></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="74" name="test_add_datanode[data1]" time="0.001"><error message="test setup failure">@pytest.fixture(scope=&quot;class&quot;)
+    def class_home():
+        print(&quot;============整个测试类只执行一次的前置======================&quot;)
+        global driver
+        driver = RunConfig.driver
+        driver.get(CD.login_url)
+&gt;       LoginPage(driver).login(ld.ID_2[&apos;user&apos;], ld.ID_2[&apos;pwd&apos;])
+
+TestCases\user_story\conftest.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+PageObjects\login_page.py:15: in login
+    self.wait_eleVisible(loc.user_input)
+Common\BasePage.py:40: in wait_eleVisible
+    WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b86423fce37ee21ea7d7fe1b4bdb31ab&quot;)&gt;
+method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x0000015E440BC588&gt;
+message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+        return value is not False.&quot;&quot;&quot;
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, &apos;screen&apos;, None)
+                stacktrace = getattr(exc, &apos;stacktrace&apos;, None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+E:\virtualenv\echo2.X_autotest\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</error></testcase></testsuite></testsuites>

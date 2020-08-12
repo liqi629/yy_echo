@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="LAPTOP-G3GAB2EO" name="pytest" skipped="0" tests="13" time="169.884" timestamp="2020-08-03T17:01:09.033694"><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="25" name="test_add_operation_system" time="16.077"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="44" name="test_add_work_dir" time="5.025"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="58" name="test_add_map" time="18.677"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="74" name="test_add_datanode[data0]" time="25.672"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="74" name="test_add_datanode[data1]" time="25.547"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="95" name="test_pub_map" time="14.976"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="107" name="test_create_work_flow" time="4.280"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="127" name="test_pilt_run" time="18.741"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="147" name="test_del_work_flow" time="12.442"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="161" name="test_del_job" time="12.323"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="175" name="test_del_map" time="3.797"><failure message="assert True == False
+  +True
+  -False">self = &lt;TestCases.user_story.test_2_story_one.TestUserStoryOne object at 0x0000015EB27FE358&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;9b9aab7a74be8565284ee3e5c8d41c0b&quot;)&gt;
+
+    def test_del_map(self, browser):
+        &quot;&quot;&quot;
+        名称：删除映射
+        步骤：
+        1、进入映射设计器，选择映射，点击删除图标
+        2、在弹出的确认窗口点击确认
+        检查点：
+        * 检查页面弹出信息，删除成功!
+        &quot;&quot;&quot;
+        current_handles = dp(browser).current_handles()
+        dp(browser).switch_window(current_handles[-1])
+        dp(browser).del_map(&quot;映射_mysql_city&quot;)
+        msg = dp(browser).is_loc_show(loc=dp_loc.text_to_loc(&quot;映射_mysql_city&quot;))
+&gt;       assert msg ==False
+E       assert True == False
+E         +True
+E         -False
+
+TestCases\user_story\test_2_story_one.py:189: AssertionError</failure></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="190" name="test_del_work_dir" time="3.280"></testcase><testcase classname="TestCases.user_story.test_2_story_one.TestUserStoryOne" file="TestCases\user_story\test_2_story_one.py" line="206" name="test_delete_operation_system" time="8.374"></testcase></testsuite></testsuites>
