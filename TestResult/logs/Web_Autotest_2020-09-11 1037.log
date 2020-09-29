@@ -1,0 +1,69 @@
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="username"]')
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="username"]')中输入文本：admin
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="password"]')
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="password"]')中输入文本：admin
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="登 录"]')
+Fri, 11 Sep 2020 10:37:38-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="登 录"]')点击事件
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="资源管理"]')
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="资源管理"]')
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="资源管理"]')点击事件
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="脚本管理"]')
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.59：以秒为单位
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="脚本管理"]')
+Fri, 11 Sep 2020 10:37:45-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="脚本管理"]')点击事件
+Fri, 11 Sep 2020 10:37:46-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//i[@class="el-icon-document-add"]')
+Fri, 11 Sep 2020 10:37:47-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长1.06：以秒为单位
+Fri, 11 Sep 2020 10:37:47-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//i[@class="el-icon-document-add"]')
+Fri, 11 Sep 2020 10:37:47-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//i[@class="el-icon-document-add"]')点击事件
+Fri, 11 Sep 2020 10:37:47-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')
+Fri, 11 Sep 2020 10:37:47-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 11 Sep 2020 10:37:47-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')
+Fri, 11 Sep 2020 10:37:47-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')中输入文本：script1599791850
+Fri, 11 Sep 2020 10:37:49-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//textarea[@class="el-textarea__inner"]')
+Fri, 11 Sep 2020 10:37:49-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//textarea[@class="el-textarea__inner"]')中输入文本：这是自动化测试的时候添加的脚本
+Fri, 11 Sep 2020 10:37:50-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@class="app-body"]//button[@class="el-button el-button--primary el-button--small"]')
+Fri, 11 Sep 2020 10:37:50-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//div[@class="app-body"]//button[@class="el-button el-button--primary el-button--small"]')点击事件
+Fri, 11 Sep 2020 10:37:50-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+Fri, 11 Sep 2020 10:37:50-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.53：以秒为单位
+Fri, 11 Sep 2020 10:37:50-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//p[@class="el-message__content"]')
+Fri, 11 Sep 2020 10:37:50-INFO-BasePage.py-get_text-[line:173]None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+Fri, 11 Sep 2020 10:37:50-INFO-BasePage.py-get_text-[line:176]None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:添加成功！
+Fri, 11 Sep 2020 10:37:58-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="工作目录管理"]')
+Fri, 11 Sep 2020 10:37:58-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 11 Sep 2020 10:37:58-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="工作目录管理"]')
+Fri, 11 Sep 2020 10:37:58-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="工作目录管理"]')点击事件
+Fri, 11 Sep 2020 10:37:59-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="添加"]')
+Fri, 11 Sep 2020 10:37:59-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 11 Sep 2020 10:37:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="添加"]')
+Fri, 11 Sep 2020 10:37:59-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="添加"]')点击事件
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '// input[@autotest="workDirectoryName"]')
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '// input[@autotest="workDirectoryName"]')
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '// input[@autotest="workDirectoryName"]')中输入文本：自动化测试目录1599791850
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//textarea[@autotest="remark"]')
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//textarea[@autotest="remark"]')中输入文本：这是自动化测试运行时添加的工作目录
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@autotest="submit"]')
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@autotest="submit"]')点击事件
+Fri, 11 Sep 2020 10:38:00-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+Fri, 11 Sep 2020 10:38:01-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 11 Sep 2020 10:38:01-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//p[@class="el-message__content"]')
+Fri, 11 Sep 2020 10:38:01-INFO-BasePage.py-get_text-[line:173]None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+Fri, 11 Sep 2020 10:38:01-INFO-BasePage.py-get_text-[line:176]None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:添加工作目录成功!
+Fri, 11 Sep 2020 10:38:05-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="工作目录管理"]')
+Fri, 11 Sep 2020 10:38:05-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 11 Sep 2020 10:38:05-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="工作目录管理"]')
+Fri, 11 Sep 2020 10:38:05-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="工作目录管理"]')点击事件
+Fri, 11 Sep 2020 10:38:06-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[text()="自动化测试目录1599791850"]//ancestor::tr//*[@class="el-icon-position"]')
+Fri, 11 Sep 2020 10:38:06-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 11 Sep 2020 10:38:06-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[text()="自动化测试目录1599791850"]//ancestor::tr//*[@class="el-icon-position"]')
+Fri, 11 Sep 2020 10:38:06-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//div[text()="自动化测试目录1599791850"]//ancestor::tr//*[@class="el-icon-position"]')点击事件
+Fri, 11 Sep 2020 10:38:06-INFO-BasePage.py-switch_window-[line:272]切换到最新打开的窗口
+Fri, 11 Sep 2020 10:38:11-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//i[@autotest="add_workflow"]')
+Fri, 11 Sep 2020 10:38:21-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Fri, 11 Sep 2020 10:38:22-INFO-BasePage.py-save_webImgs-[line:208]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-11-10-38-21.png
+Fri, 11 Sep 2020 10:38:25-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="script1599791850"]')
+Fri, 11 Sep 2020 10:38:35-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Fri, 11 Sep 2020 10:38:36-INFO-BasePage.py-save_webImgs-[line:208]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-11-10-38-35.png

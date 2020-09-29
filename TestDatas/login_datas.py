@@ -11,7 +11,7 @@ admin = {"user": "admin", "pwd": "admin"}
 
 ID_1 = {"user": "admin", "pwd": "admin"}
 #账号2
-ID_2 = {"user": "lq", "pwd": "lq"}
+ID_2 = {"user": "admin", "pwd": "admin"}
 
 #异常场景：密码错误、用户名错误
 wrong_data = [

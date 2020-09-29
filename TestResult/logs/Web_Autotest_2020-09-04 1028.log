@@ -1,0 +1,29 @@
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="username"]')
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="username"]')中输入文本：admin
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="password"]')
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="password"]')中输入文本：admin
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="登 录"]')
+Fri, 04 Sep 2020 10:28:42-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="登 录"]')点击事件
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="资源管理"]')
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="资源管理"]')
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="资源管理"]')点击事件
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="脚本管理"]')
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="脚本管理"]')
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="脚本管理"]')点击事件
+Fri, 04 Sep 2020 10:28:47-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//i[@class="el-icon-document-add"]')
+Fri, 04 Sep 2020 10:28:49-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长1.04：以秒为单位
+Fri, 04 Sep 2020 10:28:49-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//i[@class="el-icon-document-add"]')
+Fri, 04 Sep 2020 10:28:49-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//i[@class="el-icon-document-add"]')点击事件
+Fri, 04 Sep 2020 10:28:49-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')
+Fri, 04 Sep 2020 10:28:49-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 10:28:49-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')
+Fri, 04 Sep 2020 10:28:49-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')中输入文本：helloa
+Fri, 04 Sep 2020 10:28:50-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//textarea[@class="el-textarea__inner"]')
+Fri, 04 Sep 2020 10:28:50-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//textarea[@class="el-textarea__inner"]')中输入文本：这是自动化测试的时候添加的脚本
+Fri, 04 Sep 2020 10:28:50-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@class="el-button el-button--primary el-button--small"]')
+Fri, 04 Sep 2020 10:28:50-ERROR-BasePage.py-get_Element-[line:54]查找元素失败。
+Fri, 04 Sep 2020 10:28:51-INFO-BasePage.py-save_webImgs-[line:192]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-04-10-28-50.png

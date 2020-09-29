@@ -1,0 +1,9 @@
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.08：以秒为单位
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="username"]')
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="username"]')中输入文本：admin
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="password"]')
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="password"]')中输入文本：admin
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="登 录"]')
+Tue, 08 Sep 2020 10:58:03-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="登 录"]')点击事件
+Tue, 08 Sep 2020 10:58:13-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@id="graphContainer"]//*[name()="svg"]/*[name()="g"]/*[name()="g"][2]/*[name()="g"][1]/*[name()="rect" and @fill="#fff"]')

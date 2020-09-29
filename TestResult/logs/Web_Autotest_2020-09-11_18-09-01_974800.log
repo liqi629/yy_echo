@@ -1,0 +1,69 @@
+2020-09-11 18:09:08.794 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//input[@name="username"]')
+2020-09-11 18:09:08.939 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.03：以秒为单位
+2020-09-11 18:09:08.942 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//input[@name="username"]')
+2020-09-11 18:09:08.953 | INFO     | Common.BasePage:input_text:69 - None：在元素('xpath', '//input[@name="username"]')中输入文本：admin
+2020-09-11 18:09:09.065 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//input[@name="password"]')
+2020-09-11 18:09:09.087 | INFO     | Common.BasePage:input_text:69 - None：在元素('xpath', '//input[@name="password"]')中输入文本：admin
+2020-09-11 18:09:09.176 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//span[text()="登 录"]')
+2020-09-11 18:09:09.189 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//span[text()="登 录"]')点击事件
+2020-09-11 18:09:15.159 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//span[text()="资源管理"]')
+2020-09-11 18:09:15.188 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.03：以秒为单位
+2020-09-11 18:09:15.188 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//span[text()="资源管理"]')
+2020-09-11 18:09:15.196 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//span[text()="资源管理"]')点击事件
+2020-09-11 18:09:15.240 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//span[text()="脚本管理"]')
+2020-09-11 18:09:15.791 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.55：以秒为单位
+2020-09-11 18:09:15.791 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//span[text()="脚本管理"]')
+2020-09-11 18:09:15.799 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//span[text()="脚本管理"]')点击事件
+2020-09-11 18:09:15.864 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//i[@class="el-icon-document-add"]')
+2020-09-11 18:09:16.908 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长1.04：以秒为单位
+2020-09-11 18:09:16.908 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//i[@class="el-icon-document-add"]')
+2020-09-11 18:09:16.916 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//i[@class="el-icon-document-add"]')点击事件
+2020-09-11 18:09:17.113 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')
+2020-09-11 18:09:17.161 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.05：以秒为单位
+2020-09-11 18:09:17.162 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')
+2020-09-11 18:09:17.169 | INFO     | Common.BasePage:input_text:69 - None：在元素('xpath', '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')中输入文本：script1599818942
+2020-09-11 18:09:19.730 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//textarea[@class="el-textarea__inner"]')
+2020-09-11 18:09:19.749 | INFO     | Common.BasePage:input_text:69 - None：在元素('xpath', '//textarea[@class="el-textarea__inner"]')中输入文本：这是自动化测试的时候添加的脚本
+2020-09-11 18:09:20.122 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//div[@class="app-body"]//button[@class="el-button el-button--primary el-button--small"]')
+2020-09-11 18:09:20.135 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//div[@class="app-body"]//button[@class="el-button el-button--primary el-button--small"]')点击事件
+2020-09-11 18:09:20.175 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+2020-09-11 18:09:20.712 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.54：以秒为单位
+2020-09-11 18:09:20.713 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//p[@class="el-message__content"]')
+2020-09-11 18:09:20.721 | INFO     | Common.BasePage:get_text:178 - None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+2020-09-11 18:09:20.735 | INFO     | Common.BasePage:get_text:181 - None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:添加成功！
+2020-09-11 18:09:25.029 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//span[text()="工作目录管理"]')
+2020-09-11 18:09:25.057 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.03：以秒为单位
+2020-09-11 18:09:25.058 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//span[text()="工作目录管理"]')
+2020-09-11 18:09:25.067 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//span[text()="工作目录管理"]')点击事件
+2020-09-11 18:09:26.142 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//span[text()="添加"]')
+2020-09-11 18:09:26.208 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.07：以秒为单位
+2020-09-11 18:09:26.208 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//span[text()="添加"]')
+2020-09-11 18:09:26.231 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//span[text()="添加"]')点击事件
+2020-09-11 18:09:26.315 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '// input[@autotest="workDirectoryName"]')
+2020-09-11 18:09:26.871 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.56：以秒为单位
+2020-09-11 18:09:26.871 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '// input[@autotest="workDirectoryName"]')
+2020-09-11 18:09:26.884 | INFO     | Common.BasePage:input_text:69 - None：在元素('xpath', '// input[@autotest="workDirectoryName"]')中输入文本：自动化测试目录1599818942
+2020-09-11 18:09:27.050 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//textarea[@autotest="remark"]')
+2020-09-11 18:09:27.063 | INFO     | Common.BasePage:input_text:69 - None：在元素('xpath', '//textarea[@autotest="remark"]')中输入文本：这是自动化测试运行时添加的工作目录
+2020-09-11 18:09:27.220 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//button[@autotest="submit"]')
+2020-09-11 18:09:27.232 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//button[@autotest="submit"]')点击事件
+2020-09-11 18:09:27.290 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+2020-09-11 18:09:27.835 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.54：以秒为单位
+2020-09-11 18:09:27.836 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//p[@class="el-message__content"]')
+2020-09-11 18:09:27.845 | INFO     | Common.BasePage:get_text:178 - None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+2020-09-11 18:09:27.857 | INFO     | Common.BasePage:get_text:181 - None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:添加工作目录成功!
+2020-09-11 18:09:32.332 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//span[text()="工作目录管理"]')
+2020-09-11 18:09:32.369 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.04：以秒为单位
+2020-09-11 18:09:32.370 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//span[text()="工作目录管理"]')
+2020-09-11 18:09:32.380 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//span[text()="工作目录管理"]')点击事件
+2020-09-11 18:09:33.429 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//div[text()="自动化测试目录1599818942"]//ancestor::tr//*[@class="el-icon-position"]')
+2020-09-11 18:09:33.450 | INFO     | Common.BasePage:wait_eleVisible:47 - 等待时长0.02：以秒为单位
+2020-09-11 18:09:33.450 | INFO     | Common.BasePage:get_Element:55 - None：查找元素：('xpath', '//div[text()="自动化测试目录1599818942"]//ancestor::tr//*[@class="el-icon-position"]')
+2020-09-11 18:09:33.459 | INFO     | Common.BasePage:click_element:83 - None:元素：('xpath', '//div[text()="自动化测试目录1599818942"]//ancestor::tr//*[@class="el-icon-position"]')点击事件
+2020-09-11 18:09:33.630 | INFO     | Common.BasePage:switch_window:277 - 切换到最新打开的窗口
+2020-09-11 18:09:38.650 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//i[@autotest="add_workflow"]')
+2020-09-11 18:09:48.864 | ERROR    | Common.BasePage:wait_eleVisible:49 - 等待元素可见失败。
+2020-09-11 18:09:49.229 | INFO     | Common.BasePage:save_webImgs:213 - 截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-11-18-09-48.png
+2020-09-11 18:09:52.634 | INFO     | Common.BasePage:wait_eleVisible:42 - None：等待元素可见：('xpath', '//span[text()="script1599818942"]')
+2020-09-11 18:10:02.885 | ERROR    | Common.BasePage:wait_eleVisible:49 - 等待元素可见失败。
+2020-09-11 18:10:03.235 | INFO     | Common.BasePage:save_webImgs:213 - 截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-11-18-10-02.png

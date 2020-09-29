@@ -20,36 +20,27 @@ from TestDatas.story_datas import mysql_node_info, map_name, operation_system_1
 
 @pytest.mark.smoke
 @pytest.mark.usefixtures("class_home")
-@pytest.mark.usefixtures("case_home")
-class TestUserStoryOne():
+
+class TestUserStoryTwo():
     """
-    用户故事一：基础功能，没有涉及特殊的操作，比如系统变量、数据源和系统依赖验证
-    内容：添加应用-目录-映射-工作流--试运行-删除工作流-删除工作流涉及-删除映射-删除数据源-删除应用-删除工作目录
-    数据：自动化测试目录，映射_mysql_city，mysql_qc_city，自动化测试一
+    用户故事一：
 """
 
-    @pytest.mark.parametrize("data", operation_system_1)
-    def qtest_add_operation_system(self, browser, data):
-        """
-        名称：添加应用
-        前置：登录系统
-        步骤：
-        1、点击资源管理展开菜单
-        2、点击应用管理
-        3、点击添加，输入应用信息
-        4、点击确定
-        检查点：
-        * 检查页面弹出的提示信息。
-        """
 
-        hp(browser).add_operation_system(data["zh_name"], data["code"], data["short_zn_name"],
-                                         data["en_name"], data["short_en_name"], data["sys_remark"],
-                                         data["sys_version"], data["dept"], data["contacter"],
-                                         data["mobile"], data["email"])
+
+    @pytest.mark.usefixtures("case_home")
+    def test_add_script(self, browser):
+        """
+        名称：添加脚本
+        :param browser:
+        :return:
+        """
+        smp(browser).add_script(name=sd.script_name,content="#!/bin/bash", mark="这是自动化测试的时候添加的脚本")
+
         msg = hp(browser).get_text(hp_loc.toast_msg)
-        assert msg == '保存成功!'
-
-    def qtest_add_work_dir(self, browser):
+        assert msg == '添加成功！'
+    @pytest.mark.usefixtures("case_home")
+    def test_add_work_dir(self, browser):
         """
         名称：添加工作目录
         步骤：
@@ -63,15 +54,33 @@ class TestUserStoryOne():
         msg = hp(browser).get_text(hp_loc.toast_msg)
         assert msg == '添加工作目录成功!'
 
-    def test_add_script(self, browser):
-        pass
-        smp(browser).add_script("hello","#!/bin/bash", mark="这是自动化测试的时候添加的脚本")
+    @pytest.mark.usefixtures("case_switch_window")
+    def test_add_work_flow(self, browser):
+        """
+        名称：进入工作流设计器页面，添加工作流
+        :param browser:
+        :return:
+        """
+        dp(browser).add_work_flow(name="test", mark="备注")
+        msg = hp(browser).get_text(hp_loc.toast_msg)
+        assert msg == '添加成功！'
 
 
+    def test_drag(self, browser):
+        """
+        名称：拖拽命令脚本组件到设计区，完成开始-命令、脚本-结束的连线
+        :param browser:
+        :return:
+        """
+        # browser.get("http://172.16.150.173:8080/workDirectory/workflow?type=workflow&typeId=4006&treeActiveId=100&workDirectoryId=3208")
+        # time.sleep(6)
+        dp(browser).tree_text(script_name=sd.script_name)
+        msg = hp(browser).get_text(hp_loc.toast_msg)
+        assert msg == '保存成功!'
 
     def qtest_pilt_run(self, browser):
         """
-        名称：试运行
+        名称：编辑命令脚本组件，选择脚本
         步骤：
         1、点击数据源-添加
         2、选择数据源类型，点击确定

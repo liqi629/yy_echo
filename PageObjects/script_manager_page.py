@@ -47,11 +47,21 @@ class ScriptManagerPage(HomePage):
         # 输入脚本名字
         self.wait_eleVisible(loc.script_name)
         self.input_text(loc.script_name, name)
-        time.sleep(1)
-        self.click_element(loc.script_content)
+        time.sleep(2)
+
+        # self.wait_eleVisible(loc.script_name)
+        # self.keyboard_tab(loc.script_name)
+
+        elem = self.driver.find_element_by_xpath('//div[@class="CodeMirror cm-s-default CodeMirror-wrap"]')
+
+        self.driver.execute_script("arguments[0].CodeMirror.setValue(arguments[1]);", elem,content)
+        # self.click_element(loc.sss)
+        # time.sleep(3)
         # 输入脚本内容
-        self.input_text(loc.script_content, content)
+        # self.input_text(loc.sss, content)
+        # time.sleep(3)
         self.input_text(loc.mark, mark)
+        self.click_element(loc.btn_sub)
 
     # 判断脚本是否添加成功
     def is_addScript(self, loc_scriptText=loc.script_gbase_loader_1):

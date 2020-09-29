@@ -12,7 +12,7 @@ class RunConfig:
     driver_type = "chrome"
 
     # 配置运行的 URL
-    url = "http://172.16.161.48:8089/echod_manager/index.html#/login"
+    url = "http://172.16.150.173:8080/login"
 
     # 失败重跑次数
     rerun = "1"

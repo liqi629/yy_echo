@@ -1,0 +1,20 @@
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="username"]')
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="username"]')中输入文本：admin
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="password"]')
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="password"]')中输入文本：admin
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="登 录"]')
+Mon, 07 Sep 2020 16:33:10-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="登 录"]')点击事件
+Mon, 07 Sep 2020 16:33:14-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="命令/脚本"]')
+Mon, 07 Sep 2020 16:33:14-ERROR-BasePage.py-get_Element-[line:54]查找元素失败。
+Mon, 07 Sep 2020 16:33:14-INFO-BasePage.py-save_webImgs-[line:196]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-07-16-33-14.png
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.05：以秒为单位
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="username"]')
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="username"]')中输入文本：admin
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="password"]')
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="password"]')中输入文本：admin
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="登 录"]')
+Mon, 07 Sep 2020 16:33:36-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="登 录"]')点击事件
+Mon, 07 Sep 2020 16:33:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="命令/脚本"]')

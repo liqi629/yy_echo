@@ -1,0 +1,428 @@
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@name="username"]')
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="username"]')
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="username"]')中输入文本：admin
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@name="password"]')
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@name="password"]')中输入文本：admin
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="登 录"]')
+Fri, 04 Sep 2020 09:57:48-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="登 录"]')点击事件
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="资源管理"]')
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="资源管理"]')
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="资源管理"]')点击事件
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="应用管理"]')
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.55：以秒为单位
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="应用管理"]')
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="应用管理"]')点击事件
+Fri, 04 Sep 2020 09:57:53-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="添加"]')
+Fri, 04 Sep 2020 09:57:54-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长1.04：以秒为单位
+Fri, 04 Sep 2020 09:57:54-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="添加"]')
+Fri, 04 Sep 2020 09:57:54-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="添加"]')点击事件
+Fri, 04 Sep 2020 09:57:54-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文名称"]')
+Fri, 04 Sep 2020 09:57:55-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:57:55-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文名称"]')
+Fri, 04 Sep 2020 09:57:55-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文名称"]')中输入文本：功能自动化测试一
+Fri, 04 Sep 2020 09:57:55-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入编码"]')
+Fri, 04 Sep 2020 09:57:55-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入编码"]')中输入文本：123456789
+Fri, 04 Sep 2020 09:57:55-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文简称"]')
+Fri, 04 Sep 2020 09:57:55-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入中文简称"]')中输入文本：自动化测试一
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文名称"]')
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文名称"]')中输入文本：uiAutoTestOne
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文简称"]')
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入英文简称"]')中输入文本：autoTestOne
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//textarea[@placeholder="请输入描述"]')
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//textarea[@placeholder="请输入描述"]')中输入文本：这个业务系统是用来做自动化测试的，请勿删除
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入版本号"]')
+Fri, 04 Sep 2020 09:57:56-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入版本号"]')中输入文本：1.0
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入部门"]')
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入部门"]')中输入文本：产品质量保障一部
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入联系人"]')
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入联系人"]')中输入文本：产品测试员一
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入手机"]')
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@class="el-form speDialogForm"]//input[@placeholder="请输入手机"]')中输入文本：18610430001
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@aria-label="新增应用"]//span[text()="确 定"]')
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//div[@aria-label="新增应用"]//span[text()="确 定"]')点击事件
+Fri, 04 Sep 2020 09:57:57-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 09:57:58-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.53：以秒为单位
+Fri, 04 Sep 2020 09:57:58-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 09:57:58-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+Fri, 04 Sep 2020 09:57:58-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:保存成功!
+Fri, 04 Sep 2020 09:58:00-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="工作目录管理"]')
+Fri, 04 Sep 2020 09:58:00-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:00-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="工作目录管理"]')
+Fri, 04 Sep 2020 09:58:00-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="工作目录管理"]')点击事件
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="添加"]')
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="添加"]')
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="添加"]')点击事件
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '// input[@autotest="workDirectoryName"]')
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '// input[@autotest="workDirectoryName"]')
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '// input[@autotest="workDirectoryName"]')中输入文本：自动化测试目录1599184660
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//textarea[@autotest="remark"]')
+Fri, 04 Sep 2020 09:58:01-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//textarea[@autotest="remark"]')中输入文本：这是自动化测试运行时添加的工作目录
+Fri, 04 Sep 2020 09:58:02-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@autotest="submit"]')
+Fri, 04 Sep 2020 09:58:02-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@autotest="submit"]')点击事件
+Fri, 04 Sep 2020 09:58:02-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 09:58:02-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.53：以秒为单位
+Fri, 04 Sep 2020 09:58:02-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 09:58:02-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+Fri, 04 Sep 2020 09:58:02-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:添加工作目录成功!
+Fri, 04 Sep 2020 09:58:05-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="工作目录管理"]')
+Fri, 04 Sep 2020 09:58:05-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:05-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="工作目录管理"]')
+Fri, 04 Sep 2020 09:58:05-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="工作目录管理"]')点击事件
+Fri, 04 Sep 2020 09:58:06-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[text()="自动化测试目录1599184660"]//ancestor::tr//*[@class="el-icon-position"]')
+Fri, 04 Sep 2020 09:58:06-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:06-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[text()="自动化测试目录1599184660"]//ancestor::tr//*[@class="el-icon-position"]')
+Fri, 04 Sep 2020 09:58:06-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//div[text()="自动化测试目录1599184660"]//ancestor::tr//*[@class="el-icon-position"]')点击事件
+Fri, 04 Sep 2020 09:58:06-INFO-BasePage.py-switch_window-[line:244]切换到最新打开的窗口
+Fri, 04 Sep 2020 09:58:09-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="映射设计器"]')
+Fri, 04 Sep 2020 09:58:11-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长2.03：以秒为单位
+Fri, 04 Sep 2020 09:58:11-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="映射设计器"]')
+Fri, 04 Sep 2020 09:58:11-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="映射设计器"]')点击事件
+Fri, 04 Sep 2020 09:58:11-INFO-BasePage.py-switch_window-[line:244]切换到最新打开的窗口
+Fri, 04 Sep 2020 09:58:16-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//img[@id="addBgBac"]')
+Fri, 04 Sep 2020 09:58:18-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长2.03：以秒为单位
+Fri, 04 Sep 2020 09:58:18-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//img[@id="addBgBac"]')
+Fri, 04 Sep 2020 09:58:18-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//img[@id="addBgBac"]')点击事件
+Fri, 04 Sep 2020 09:58:20-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@id="bisName"]')
+Fri, 04 Sep 2020 09:58:20-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 09:58:20-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@id="bisName"]')
+Fri, 04 Sep 2020 09:58:20-INFO-BasePage.py-clear_input_text-[line:131]None：清除元素：('xpath', '//input[@id="bisName"]')
+Fri, 04 Sep 2020 09:58:20-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@id="bisName"]')
+Fri, 04 Sep 2020 09:58:20-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@id="bisName"]')中输入文本：映射_mysql_city1599184660
+Fri, 04 Sep 2020 09:58:21-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="btnBusinessAdd"]')
+Fri, 04 Sep 2020 09:58:21-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="btnBusinessAdd"]')点击事件
+Fri, 04 Sep 2020 09:58:21-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:58:21-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.53：以秒为单位
+Fri, 04 Sep 2020 09:58:21-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:58:21-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//div[@id="toast-container"]')的文本内容
+Fri, 04 Sep 2020 09:58:21-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//div[@id="toast-container"]')的文本内容为:添加映射成功
+Fri, 04 Sep 2020 09:58:27-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:58:27-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:27-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:58:27-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')点击事件
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@title="数据源"]')
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@title="数据源"]')
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@title="数据源"]')点击事件
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@title="添加"]')
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@title="添加"]')
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@title="添加"]')点击事件
+Fri, 04 Sep 2020 09:58:28-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@id="dataTree_1_switch"]')
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@id="dataTree_1_switch"]')
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@id="dataTree_1_switch"]')点击事件
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', ' //span[text()="MySQL"]')
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', ' //span[text()="MySQL"]')
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', ' //span[text()="MySQL"]')点击事件
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[@id="btn-db-type"]')
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="btn-db-type"]')
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="btn-db-type"]')点击事件
+Fri, 04 Sep 2020 09:58:29-INFO-BasePage.py-switch_window-[line:244]切换到最新打开的窗口
+Fri, 04 Sep 2020 09:58:30-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//form[@name="sameTOMysqlDriver"]//button[@id="addSource"]')
+Fri, 04 Sep 2020 09:58:32-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长2.04：以秒为单位
+Fri, 04 Sep 2020 09:58:33-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//button[@id="addSource"]')
+Fri, 04 Sep 2020 09:58:33-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//form[@name="sameTOMysqlDriver"]//button[@id="addSource"]')点击事件
+Fri, 04 Sep 2020 09:58:33-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="sourceName"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="sourceName"]')中输入文本：mysql_qc
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="ip"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="ip"]')中输入文本：172.16.161.119
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="port"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="port"]')中输入文本：3306
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="userName"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="userName"]')中输入文本：root
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="passWord"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="passWord"]')中输入文本：root
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//*[@name="sameTOMysqlDriver"]//*[@id="belongToSysName"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//*[@name="sameTOMysqlDriver"]//*[@id="belongToSysName"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.01：以秒为单位
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//*[@name="sameTOMysqlDriver"]//*[@id="belongToSysName"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="dbName"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="dbName"]')中输入文本：qc
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//a[@id="test-connect"]')
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//form[@name="sameTOMysqlDriver"]//a[@id="test-connect"]')点击事件
+Fri, 04 Sep 2020 09:58:34-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="连接成功"]')
+Fri, 04 Sep 2020 09:58:35-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.53：以秒为单位
+Fri, 04 Sep 2020 09:58:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:58:36-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="下一步"]')点击事件
+Fri, 04 Sep 2020 09:58:38-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//button[@id="tableSelect"]')
+Fri, 04 Sep 2020 09:58:38-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:38-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//select[@name="tableTab_length"]')
+Fri, 04 Sep 2020 09:58:38-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@data-name="city"]')
+Fri, 04 Sep 2020 09:58:38-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:38-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@data-name="city"]')
+Fri, 04 Sep 2020 09:58:38-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//input[@data-name="city"]')点击事件
+Fri, 04 Sep 2020 09:58:40-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:58:40-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="下一步"]')点击事件
+Fri, 04 Sep 2020 09:58:42-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:58:42-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:42-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:58:42-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="下一步"]')点击事件
+Fri, 04 Sep 2020 09:58:44-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[text()="确定"]')
+Fri, 04 Sep 2020 09:58:44-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:44-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="确定"]')
+Fri, 04 Sep 2020 09:58:44-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="确定"]')点击事件
+Fri, 04 Sep 2020 09:58:45-INFO-BasePage.py-switch_window-[line:254]切换到指定handles
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="保存"]')
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="保存"]')
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="保存"]')点击事件
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[@id="btn-relation-add"]')
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.55：以秒为单位
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="btn-relation-add"]')
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="btn-relation-add"]')点击事件
+Fri, 04 Sep 2020 09:58:46-INFO-designer_page.py-add_data_node_mysql-[line:204]创建时间是：2020-09-04 09:58:46
+Fri, 04 Sep 2020 09:58:46-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:58:47-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:58:47-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:58:47-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//div[@id="toast-container"]')的文本内容
+Fri, 04 Sep 2020 09:58:47-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//div[@id="toast-container"]')的文本内容为:更新映射成功
+Fri, 04 Sep 2020 09:58:52-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:58:52-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:52-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:58:52-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')点击事件
+Fri, 04 Sep 2020 09:58:53-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@title="数据目标"]')
+Fri, 04 Sep 2020 09:58:53-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:53-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@title="数据目标"]')
+Fri, 04 Sep 2020 09:58:53-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@title="数据目标"]')点击事件
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@title="添加"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@title="添加"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@title="添加"]')点击事件
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@id="dataTree_1_switch"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@id="dataTree_1_switch"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@id="dataTree_1_switch"]')点击事件
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', ' //span[text()="MySQL"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', ' //span[text()="MySQL"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', ' //span[text()="MySQL"]')点击事件
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[@id="btn-db-type"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="btn-db-type"]')
+Fri, 04 Sep 2020 09:58:54-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="btn-db-type"]')点击事件
+Fri, 04 Sep 2020 09:58:55-INFO-BasePage.py-switch_window-[line:244]切换到最新打开的窗口
+Fri, 04 Sep 2020 09:58:56-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//form[@name="sameTOMysqlDriver"]//button[@id="addSource"]')
+Fri, 04 Sep 2020 09:58:58-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长2.04：以秒为单位
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//button[@id="addSource"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//form[@name="sameTOMysqlDriver"]//button[@id="addSource"]')点击事件
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="sourceName"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="sourceName"]')中输入文本：mysql_qc
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="ip"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="ip"]')中输入文本：172.16.161.119
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="port"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="port"]')中输入文本：3306
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="userName"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="userName"]')中输入文本：root
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="passWord"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="passWord"]')中输入文本：root
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//*[@name="sameTOMysqlDriver"]//*[@id="belongToSysName"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//*[@name="sameTOMysqlDriver"]//*[@id="belongToSysName"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.01：以秒为单位
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//*[@name="sameTOMysqlDriver"]//*[@id="belongToSysName"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="dbName"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//form[@name="sameTOMysqlDriver"]//input[@id="dbName"]')中输入文本：qc
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//form[@name="sameTOMysqlDriver"]//a[@id="test-connect"]')
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//form[@name="sameTOMysqlDriver"]//a[@id="test-connect"]')点击事件
+Fri, 04 Sep 2020 09:58:59-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="连接成功"]')
+Fri, 04 Sep 2020 09:59:00-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.53：以秒为单位
+Fri, 04 Sep 2020 09:59:01-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:59:01-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="下一步"]')点击事件
+Fri, 04 Sep 2020 09:59:03-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//button[@id="tableSelect"]')
+Fri, 04 Sep 2020 09:59:03-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:03-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//select[@name="tableTab_length"]')
+Fri, 04 Sep 2020 09:59:03-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@data-name="city_t"]')
+Fri, 04 Sep 2020 09:59:03-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:03-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@data-name="city_t"]')
+Fri, 04 Sep 2020 09:59:03-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//input[@data-name="city_t"]')点击事件
+Fri, 04 Sep 2020 09:59:05-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:59:05-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="下一步"]')点击事件
+Fri, 04 Sep 2020 09:59:07-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:59:07-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:07-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="下一步"]')
+Fri, 04 Sep 2020 09:59:08-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="下一步"]')点击事件
+Fri, 04 Sep 2020 09:59:10-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[text()="确定"]')
+Fri, 04 Sep 2020 09:59:10-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:10-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[text()="确定"]')
+Fri, 04 Sep 2020 09:59:10-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[text()="确定"]')点击事件
+Fri, 04 Sep 2020 09:59:10-INFO-BasePage.py-switch_window-[line:254]切换到指定handles
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="保存"]')
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="保存"]')
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="保存"]')点击事件
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[@id="btn-relation-add"]')
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="btn-relation-add"]')
+Fri, 04 Sep 2020 09:59:11-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="btn-relation-add"]')点击事件
+Fri, 04 Sep 2020 09:59:12-INFO-designer_page.py-add_data_node_mysql-[line:204]创建时间是：2020-09-04 09:59:12
+Fri, 04 Sep 2020 09:59:12-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:59:12-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 09:59:12-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:59:12-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//div[@id="toast-container"]')的文本内容
+Fri, 04 Sep 2020 09:59:12-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//div[@id="toast-container"]')的文本内容为:更新映射成功
+Fri, 04 Sep 2020 09:59:14-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:59:14-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:14-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:59:14-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')点击事件
+Fri, 04 Sep 2020 09:59:15-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@title="数据源"]')
+Fri, 04 Sep 2020 09:59:15-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@title="数据源"]')点击事件
+Fri, 04 Sep 2020 09:59:15-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="映射关系"]')
+Fri, 04 Sep 2020 09:59:15-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="映射关系"]')点击事件
+Fri, 04 Sep 2020 09:59:16-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="批量连线"]')
+Fri, 04 Sep 2020 09:59:16-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="批量连线"]')点击事件
+Fri, 04 Sep 2020 09:59:18-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[@id="modalTableConfig"]//a[text()="确定"]')
+Fri, 04 Sep 2020 09:59:18-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:18-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@id="modalTableConfig"]//a[text()="确定"]')
+Fri, 04 Sep 2020 09:59:18-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//div[@id="modalTableConfig"]//a[text()="确定"]')点击事件
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="保存"]')
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="保存"]')
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="保存"]')点击事件
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[@id="btn-relation-add"]')
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="btn-relation-add"]')
+Fri, 04 Sep 2020 09:59:19-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="btn-relation-add"]')点击事件
+Fri, 04 Sep 2020 09:59:20-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="发布"]')
+Fri, 04 Sep 2020 09:59:20-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 09:59:20-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="发布"]')
+Fri, 04 Sep 2020 09:59:20-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="发布"]')点击事件
+Fri, 04 Sep 2020 09:59:23-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:59:23-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:23-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//div[@id="toast-container"]')
+Fri, 04 Sep 2020 09:59:23-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//div[@id="toast-container"]')的文本内容
+Fri, 04 Sep 2020 09:59:23-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//div[@id="toast-container"]')的文本内容为:映射发布成功
+更新映射成功
+Fri, 04 Sep 2020 09:59:26-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@id="quicklyGeneateWorkflow"]')
+Fri, 04 Sep 2020 09:59:26-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:26-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@id="quicklyGeneateWorkflow"]')
+Fri, 04 Sep 2020 09:59:26-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[@id="quicklyGeneateWorkflow"]')点击事件
+Fri, 04 Sep 2020 09:59:26-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//input[@id="workflowName"]')
+Fri, 04 Sep 2020 09:59:26-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:59:26-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@id="workflowName"]')
+Fri, 04 Sep 2020 09:59:27-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@id="workflowName"]')中输入文本：mysql_qc_city1599184660
+Fri, 04 Sep 2020 09:59:27-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//input[@id="workflowDescription"]')
+Fri, 04 Sep 2020 09:59:27-INFO-BasePage.py-input_text-[line:64]None：在元素('xpath', '//input[@id="workflowDescription"]')中输入文本：自动化测试：工作流的描述
+Fri, 04 Sep 2020 09:59:27-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="workflowBtn"]')
+Fri, 04 Sep 2020 09:59:27-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="workflowBtn"]')点击事件
+Fri, 04 Sep 2020 09:59:27-INFO-BasePage.py-switch_window-[line:254]切换到指定handles
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="mysql_qc_city1599184660"]')
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="mysql_qc_city1599184660"]')
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//span[text()="mysql_qc_city1599184660"]')的文本内容
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//span[text()="mysql_qc_city1599184660"]')的文本内容为:mysql_qc_city1599184660
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//span[text()="映射_mysql_city1599184660"]')的文本内容
+Fri, 04 Sep 2020 09:59:28-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//span[text()="映射_mysql_city1599184660"]')的文本内容为:映射_mysql_city1599184660
+Fri, 04 Sep 2020 09:59:33-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="mysql_qc_city1599184660"]')
+Fri, 04 Sep 2020 09:59:33-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:33-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="mysql_qc_city1599184660"]')
+Fri, 04 Sep 2020 09:59:33-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="mysql_qc_city1599184660"]')点击事件
+Fri, 04 Sep 2020 09:59:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 09:59:34-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')点击事件
+Fri, 04 Sep 2020 09:59:34-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//*[@class="el-button el-button--text el-button--mini"][4]')
+Fri, 04 Sep 2020 09:59:34-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//*[@class="el-button el-button--text el-button--mini"][4]')点击事件
+Fri, 04 Sep 2020 09:59:35-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 09:59:35-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 09:59:35-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 09:59:35-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')点击事件
+Fri, 04 Sep 2020 09:59:36-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 09:59:36-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 09:59:36-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')点击事件
+Fri, 04 Sep 2020 09:59:46-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[@class="el-tag el-tag--success el-tag--small el-tag--light"]')
+Fri, 04 Sep 2020 09:59:51-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长5.11：以秒为单位
+Fri, 04 Sep 2020 09:59:51-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[@class="el-tag el-tag--success el-tag--small el-tag--light"]')
+Fri, 04 Sep 2020 09:59:51-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//span[@class="el-tag el-tag--success el-tag--small el-tag--light"]')的文本内容
+Fri, 04 Sep 2020 09:59:51-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//span[@class="el-tag el-tag--success el-tag--small el-tag--light"]')的文本内容为:成功
+Fri, 04 Sep 2020 09:59:54-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//ul[@class="el-menu"]//span[text()="工作流设计器"]')
+Fri, 04 Sep 2020 09:59:54-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.02：以秒为单位
+Fri, 04 Sep 2020 09:59:54-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//ul[@class="el-menu"]//span[text()="工作流设计器"]')
+Fri, 04 Sep 2020 09:59:54-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//ul[@class="el-menu"]//span[text()="工作流设计器"]')点击事件
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="mysql_qc_city1599184660"]')
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="mysql_qc_city1599184660"]')
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="mysql_qc_city1599184660"]')点击事件
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="mysql_qc_city1599184660"]//ancestor::span//i[@class="el-tooltip el-icon-delete left-icon item"]')
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="mysql_qc_city1599184660"]//ancestor::span//i[@class="el-tooltip el-icon-delete left-icon item"]')点击事件
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 09:59:57-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')点击事件
+Fri, 04 Sep 2020 09:59:59-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="mysql_qc_city1599184660"]')
+Fri, 04 Sep 2020 10:00:04-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Fri, 04 Sep 2020 10:00:04-INFO-BasePage.py-save_webImgs-[line:180]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-04-10-00-04.png
+Fri, 04 Sep 2020 10:00:07-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//ul[@class="el-menu"]//span[text()="工作流设计器"]')
+Fri, 04 Sep 2020 10:00:07-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 10:00:07-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//ul[@class="el-menu"]//span[text()="工作流设计器"]')
+Fri, 04 Sep 2020 10:00:07-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//ul[@class="el-menu"]//span[text()="工作流设计器"]')点击事件
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="映射_mysql_city1599184660"]')点击事件
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="映射_mysql_city1599184660"]//ancestor::span//i[@class="el-tooltip el-icon-delete left-icon item"]')
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="映射_mysql_city1599184660"]//ancestor::span//i[@class="el-tooltip el-icon-delete left-icon item"]')点击事件
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.03：以秒为单位
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 10:00:10-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')点击事件
+Fri, 04 Sep 2020 10:00:11-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 10:00:16-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Fri, 04 Sep 2020 10:00:16-INFO-BasePage.py-save_webImgs-[line:180]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-04-10-00-16.png
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-switch_window-[line:254]切换到指定handles
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.05：以秒为单位
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//ul[@id="treeDemo"]//span[text()="映射_mysql_city1599184660"]')点击事件
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="删除"]')
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.08：以秒为单位
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="删除"]')
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="删除"]')点击事件
+Fri, 04 Sep 2020 10:00:19-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//a[@id="btn-delete"]')
+Fri, 04 Sep 2020 10:00:20-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 10:00:20-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//a[@id="btn-delete"]')
+Fri, 04 Sep 2020 10:00:20-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//a[@id="btn-delete"]')点击事件
+Fri, 04 Sep 2020 10:00:21-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="映射_mysql_city1599184660"]')
+Fri, 04 Sep 2020 10:00:26-ERROR-BasePage.py-wait_eleVisible-[line:44]等待元素可见失败。
+Fri, 04 Sep 2020 10:00:26-INFO-BasePage.py-save_webImgs-[line:180]截屏成功,图片路径为E:\YOYO\echo2.X_autotest\TestResult\imgs/None_2020-09-04-10-00-26.png
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-switch_window-[line:249]切换到第一个窗口
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//*[text()="自动化测试目录1599184660"]//ancestor::tr//i[@class="el-icon-delete"]')
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.08：以秒为单位
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//*[text()="自动化测试目录1599184660"]//ancestor::tr//i[@class="el-icon-delete"]')
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//*[text()="自动化测试目录1599184660"]//ancestor::tr//i[@class="el-icon-delete"]')点击事件
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.04：以秒为单位
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')点击事件
+Fri, 04 Sep 2020 10:00:29-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 10:00:30-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 10:00:30-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 10:00:30-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+Fri, 04 Sep 2020 10:00:30-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:删除工作目录成功,删除行数[1]
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="资源管理"]')
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.21：以秒为单位
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="资源管理"]')
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="资源管理"]')点击事件
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//span[text()="应用管理"]')
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.59：以秒为单位
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//span[text()="应用管理"]')
+Fri, 04 Sep 2020 10:00:33-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//span[text()="应用管理"]')点击事件
+Fri, 04 Sep 2020 10:00:34-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//*[text()="自动化测试一"]//ancestor::tr//*[text()="删除"]')
+Fri, 04 Sep 2020 10:00:35-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长1.21：以秒为单位
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//*[text()="自动化测试一"]//ancestor::tr//*[text()="删除"]')
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//*[text()="自动化测试一"]//ancestor::tr//*[text()="删除"]')点击事件
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-click_element-[line:78]None:元素：('xpath', '//button[@class="el-button el-button--default el-button--small el-button--primary "]')点击事件
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-wait_eleVisible-[line:37]None：等待元素可见：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-wait_eleVisible-[line:42]等待时长0.54：以秒为单位
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-get_Element-[line:50]None：查找元素：('xpath', '//p[@class="el-message__content"]')
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-get_text-[line:145]None:获取元素:('xpath', '//p[@class="el-message__content"]')的文本内容
+Fri, 04 Sep 2020 10:00:36-INFO-BasePage.py-get_text-[line:148]None:元素:('xpath', '//p[@class="el-message__content"]')的文本内容为:删除成功!

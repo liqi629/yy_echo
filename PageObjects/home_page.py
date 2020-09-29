@@ -54,7 +54,7 @@ class HomePage(BasePage):
     def add_map(self, work_dir_name):
         # 获取窗口句柄，要放在新窗口出现之前
         current_handles = self.current_handles()
-        #进入工作目录
+        #进入工作目录-点击工作目录管理-目录的进入按钮
         self.wait_eleVisible(loc.work_dir)
         self.click_element(loc.work_dir)
         time.sleep(1)
@@ -69,6 +69,9 @@ class HomePage(BasePage):
         # 切换到新窗口
         self.switch_window("new", current_handles_1)
         time.sleep(3)
+
+
+
 
 
     #鼠标悬浮作业设计——点击设计器，进入新窗口

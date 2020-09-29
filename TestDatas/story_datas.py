@@ -11,6 +11,7 @@ ts = int(time.time())
 work_dir_name = "自动化测试目录{}".format(ts)
 map_name = "映射_mysql_city{}".format(ts)
 work_flow_name = "mysql_qc_city{}".format(ts)
+script_name = "script{}".format(ts)
 # 用户故事1：映射的定位
 map_name_loc = dp_loc.job_loc(map_name)
 mysql_node_info = [

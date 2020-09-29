@@ -60,7 +60,7 @@ class DesignerPageLocator:
     @staticmethod
     def btn_del_job_text_loc(text):
         """
-        工作流设计页面：传入工作流的名称，获取对应的删除按钮
+        工作流设计页面：传入作业的名称，获取对应的删除按钮
         :return:
         """
         loc = (By.XPATH, '//span[text()="{}"]//ancestor::span//i[@class="el-tooltip el-icon-delete left-icon item"]'.format(text))
@@ -90,8 +90,14 @@ class DesignerPageLocator:
     # 工作流设计器
     # 菜单-工作流设计器
     menu_work_flow_des = (By.XPATH, '//ul[@class="el-menu"]//span[text()="工作流设计器"]')
-
-
+    # 工作流的添加 + 号
+    add_work_flow = (By.XPATH, '//i[@autotest="add_workflow"]')
+    # 添加工作流-工作流名称
+    work_flow_name = (By.XPATH, '//input[@autotest="form_workflow_name"]')
+    # 工作流备注
+    work_flow_mark = (By.XPATH, '//textarea[@autotest="form_workflow_remark"]')
+    # 添加工作流页面确定按钮
+    btn_ack = (By.XPATH, '//div[@aria-label="添加工作流"]//span[text()="确 定"]')
 
     toast_msg = (By.XPATH, '//div[@id="toast-container"]')
 
@@ -99,6 +105,23 @@ class DesignerPageLocator:
     # 删除工作流、删除作业
     toast_msg_del = (By.XPATH, '//*[text()="删除成功!"]')
 
+    # 开始图标
+    start = (By.XPATH, '//div[@id="graphContainer"]//*[name()="svg"]/*[name()="g"]/*[name()="g"][2]/*[name()="g"][1]/*[name()="rect" and @fill="#fff"]')
+    end = (By.XPATH, '//*[@id="graphContainer"]/*[name()="svg"]/*[name()="g"]/*[name()="g"]/*[name()="g"][2]/*[name()="rect" and @fill="gray"]')
+
+    # 箭头标志
+    arrow = (By.XPATH, '//div[@id="graphContainer"]//*[name()="svg"]/*[name()="g"]/*[name()="g"][4]/*[name()="g"]/*[name()="image"]')
+    end_arrow = (By.XPATH, '//*[@id="graphContainer"]/*[name()="svg"]/*[name()="g"]/*[name()="g"][4]')
+
+    # 命令脚本的图标
+    ml = (By.XPATH, '//div[@id="graphContainer"]//*[name()="svg"]/*[name()="g"]/*[name()="g"][2]/*[name()="g"][3]')
+    # 命令脚本的图标.连线的时候的箭头 进入箭头
+    ml_in_arrow = (By.XPATH, '//*[@id="graphContainer"]/*[name()="svg"]/*[name()="g"]/*[name()="g"][4]/*[name()="g"][2]')
+    ml_out_arrow = (By.XPATH, '//*[@id="graphContainer"]/*[name()="svg"]/*[name()="g"]/*[name()="g"][4]/*[name()="g"][1]')
+    bar_open = (By.XPATH, '//div[@class="bar open"]')
+
+    # 工作流设计器，设计区的保存按钮
+    work_flow_save = (By.XPATH, '//div[@class="fr graph-action-btn"]//button[@autotest="save"]')
 
     # 按钮====================================================================================================================
     # 新建作业+号
@@ -131,10 +154,7 @@ class DesignerPageLocator:
     publish_button = (By.XPATH, '//span[text()="发布"]')
     btn_creat_work_flow = (By.XPATH, '//span[@id="quicklyGeneateWorkflow"]')
 
-    # 工作流名称输入、描述\确定按钮
-    workflowName_input = (By.XPATH, '//input[@id="workflowName"]')
-    workflowName_remark = (By.XPATH, '//input[@id="workflowDescription"]')
-    workflowName_confirm = (By.XPATH, '//a[@id="workflowBtn"]')
+
 
     # 弹出窗口-确认按钮
 

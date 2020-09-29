@@ -762,17 +762,17 @@ class DesignerPage(HomePage):
             logging.error("没有运行成功！")
             return False
 
-    # 新建工作流
-    def add_work_flow(self, work_flow_name):
-        self.select_loc(loc.not_delete_job)
-        self.wait_eleVisible(loc.work_flow)
-        # self.click_element(loc.work_flow)
-        self.hover_element(loc.work_flow)
-        self.wait_eleVisible(loc.add_work_folw_btn)
-        self.click_element(loc.add_work_folw_btn)
-        self.wait_eleVisible(loc.work_flow_input)
-        self.input_text(loc.work_flow_input, work_flow_name)
-        self.click_element(loc.btn_workflow_add)
+    # 新建工作流-废除
+    # def add_work_flow(self, work_flow_name):
+    #     self.select_loc(loc.not_delete_job)
+    #     self.wait_eleVisible(loc.work_flow)
+    #     # self.click_element(loc.work_flow)
+    #     self.hover_element(loc.work_flow)
+    #     self.wait_eleVisible(loc.add_work_folw_btn)
+    #     self.click_element(loc.add_work_folw_btn)
+    #     self.wait_eleVisible(loc.work_flow_input)
+    #     self.input_text(loc.work_flow_input, work_flow_name)
+    #     self.click_element(loc.btn_workflow_add)
 
     # 判断新增的工作流是否存在
     def is_new_work_flow(self):
@@ -806,6 +806,38 @@ class DesignerPage(HomePage):
             return True
         except:
             return False
+
+    # 添加工作流
+    def add_work_flow(self, name, mark):
+        self.wait_eleVisible(loc.add_work_flow)
+        self.click_element(loc.add_work_flow)
+        self.input_text(loc.work_flow_name, name)
+        self.input_text(loc.work_flow_mark, mark)
+        self.click_element(loc.btn_ack)
+
+    # 拖拽命令脚本
+    def tree_text(self, script_name):
+        self.select_loc(loc.text_to_loc(script_name))
+        self.drag_and_drop_by_offset(loc.text_to_loc("命令/脚本"), 600,200)
+        time.sleep(1)
+        self.hover_element(loc.start)
+        self.wait_eleVisible(loc.arrow)
+        self.click_and_hold(loc.arrow)
+        self.move_to_element(loc.ml)
+        self.move_to_element_release(loc.ml_in_arrow)
+        time.sleep(1)
+        self.wait_eleVisible(loc.bar_open)
+        self.click_element(loc.bar_open)
+        time.sleep(1)
+        self.hover_element(loc.ml)
+        self.wait_eleVisible(loc.ml_out_arrow)
+        self.click_and_hold(loc.ml_out_arrow)
+        self.move_to_element(loc.end)
+        self.move_to_element_release(loc.end_arrow)
+        time.sleep(1)
+        self.click_element(loc.work_flow_save)
+
+        time.sleep(10)
 
 # 分布式运行
 # 查询源数据

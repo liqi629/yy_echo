@@ -17,11 +17,14 @@ class ScriptManagerPageLocator:
     script_name = (By.XPATH, '//div[@class="el-input el-input--small"]//input[@class="el-input__inner"]')
 
     # 脚本内容输入框
-    script_content = (By.XPATH, '//div[@id="scrpitInput"]')
+    script_content = (By.XPATH, '//div[@class="CodeMirror-code"]')
+    sss = (By.XPATH, '//div[@class="CodeMirror-scroll"]')
+    # bbb = (By.XPATH, '//div[@class="CodeMirror-scroll"]')
+    script_content_line = (By.XPATH, '//pre[@class=" CodeMirror-line "]')
     # 备注
     mark = (By.XPATH, '//textarea[@class="el-textarea__inner"]')
     # 确定
-    btn_sub = (By.XPATH, '//div[@class="el-button el-button--primary el-button--small"]')
+    btn_sub = (By.XPATH, '//div[@class="app-body"]//button[@class="el-button el-button--primary el-button--small"]')
 
     btn_edit_sub = (By.XPATH, '//div[@id="modalTable"]//button[text()="提交"]')
     # 新增的脚本

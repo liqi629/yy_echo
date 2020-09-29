@@ -22,3 +22,6 @@ handler_2 = RotatingFileHandler(dir_config.logs_dir+"/Web_Autotest_{0}.log".form
                                 backupCount=0, encoding='utf-8')
 #设置rootlogger的输出内容形式，输出渠道
 logging.basicConfig(format=fmt, datefmt=datefmt, level=logging.INFO, handlers=[handler_1, handler_2])
+
+
+
